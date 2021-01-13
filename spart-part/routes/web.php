@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\models\Customer;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +19,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $customers = Customer::where('status','Active')->paginate(5);
+  
+    return view('dashboard',['customers'=>$customers]);
 });
 
 Auth::routes();
