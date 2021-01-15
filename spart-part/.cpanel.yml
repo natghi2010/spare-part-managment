@@ -4,3 +4,5 @@ deployment:
       - export DEPLOYPATH=/home/jasminedeveloper/sparepart.jasminedeveloper.com
       - /bin/cp -R * $DEPLOYPATH
       - /bin/cp -R ./public/* $DEPLOYPATH/
+   
+      #composer install?
