@@ -19,9 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/dashboard', function () {
-    $customers = Customer::where('status','Active')->paginate(5);
-  
-    return view('dashboard',['customers'=>$customers]);
+    return view('dashboard');
+});
+Route::get('/user/create', function () {
+    return view('dashboard');
 });
 
 Auth::routes();
