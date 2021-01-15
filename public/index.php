@@ -9,6 +9,9 @@
 
 define('LARAVEL_START', microtime(true));
 
+
+$customPath = $_SERVER['HTTP_HOST'] == 'localhost:8000' ? '../' :'';
+
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader
@@ -21,7 +24,7 @@ define('LARAVEL_START', microtime(true));
 |
 */
 
-require __DIR__.'/../vendor/autoload.php';
+require __DIR__.'/'.$customPath.'vendor/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +38,7 @@ require __DIR__.'/../vendor/autoload.php';
 |
 */
 
-$app = require_once __DIR__.'/../bootstrap/app.php';
+$app = require_once __DIR__.'/'.$customPath.'bootstrap/app.php';
 
 /*
 |--------------------------------------------------------------------------
