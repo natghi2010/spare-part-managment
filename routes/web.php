@@ -21,8 +21,8 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
-Route::get('/user/create', function () {
-    return view('dashboard');
+Route::get('/createUser', function () {
+    return view('createUser');
 });
 
 Auth::routes();
