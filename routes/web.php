@@ -18,12 +18,33 @@ use App\models\Customer;
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('/dashboard', function () {
     return view('dashboard');
+})->name('dashboard');
+
+
+//user start
+Route::prefix('user')->group(function () {
+    
+    Route::get('/','UserController@index')->name('users');
+
+    Route::get('/create','UserController@create')->name('create-user');
+
+    Route::get('/edit/{id}','UserController@edit')->name('edit-user');
+ 
+    
+    Route::post('/','UserController@store')->name('store-user');
+    Route::post('/update','UserController@update')->name('update-user');
+
+
+ 
+    
 });
-Route::get('/createUser', function () {
-    return view('createUser');
-});
+//user end
+
+
+
 
 
 
