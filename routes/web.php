@@ -25,6 +25,6 @@ Route::get('/createUser', function () {
     return view('createUser');
 });
 
-Auth::routes();
+
 
 Route::get('/home', 'HomeController@index')->name('home');
