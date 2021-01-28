@@ -49,9 +49,11 @@
                 <tfoot>
                     <tr>
                         <th>Name</th>
+                        <th>CountryOfOrigin</th>
+                        <th>Tin Number</th>
+                        <th>Phone</th>
                         <th>Email</th>
-                        <th>Type</th>
-
+                        <th>Status</th>
                         <th></th>
                     </tr>
                 </tfoot>
