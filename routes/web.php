@@ -26,22 +26,40 @@ Route::get('/dashboard', function () {
 
 //user start
 Route::prefix('user')->group(function () {
-    
+
     Route::get('/','UserController@index')->name('users');
 
     Route::get('/create','UserController@create')->name('create-user');
 
     Route::get('/edit/{id}','UserController@edit')->name('edit-user');
- 
-    
+
+
     Route::post('/','UserController@store')->name('store-user');
     Route::post('/update','UserController@update')->name('update-user');
 
 
- 
-    
+
+
 });
 //user end
+//supplier start
+Route::prefix('supplier')->group(function () {
+
+    Route::get('/','supplierController@index')->name('suppliers');
+
+    Route::get('/create','supplierController@create')->name('create-supplier');
+
+    Route::get('/edit/{id}','supplierController@edit')->name('edit-supplier');
+
+
+    Route::post('/','supplierController@store')->name('store-supplier');
+    Route::post('/update','supplierController@update')->name('update-supplier');
+
+
+
+
+});
+//supplier end
 
 
 
