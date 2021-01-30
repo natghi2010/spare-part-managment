@@ -42,6 +42,8 @@ Route::prefix('user')->group(function () {
 
 });
 //user end
+
+
 //supplier start
 Route::prefix('supplier')->group(function () {
 
@@ -60,6 +62,26 @@ Route::prefix('supplier')->group(function () {
 
 });
 //supplier end
+
+
+//customer start
+Route::prefix('customer')->group(function () {
+
+    Route::get('/','customerController@index')->name('customers');
+
+    Route::get('/create','customerController@create')->name('create-customer');
+
+    Route::get('/edit/{id}','customerController@edit')->name('edit-customer');
+
+
+    Route::post('/','customerController@store')->name('store-customer');
+    Route::post('/update','customerController@update')->name('update-customer');
+
+
+
+
+});
+//customer end
 
 
 
