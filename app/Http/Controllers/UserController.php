@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\ActivityLog;
+
 
 use Illuminate\Http\Request;
 
@@ -33,6 +35,13 @@ class UserController extends Controller
         $user->password = bcrypt('admin');
         $user->save();
 
+        //Logging Activity START
+        $activity_log = new ActivityLog;
+        $activity_log->user_id = auth()->user()->id;
+        $activity_log->action = 'Added User';
+        $activity_log->save();
+         //Logging Activity END
+
         return redirect(route('users'));
     }
 
@@ -48,6 +57,17 @@ class UserController extends Controller
 
     public function delete(){
 
+    }
+
+    public function showUsersActivity(){
+        $activity_logs = ActivityLog::with('user')->get();
+        return view('activity-log',['activity_logs'=>$activity_logs]);
+    }
+    public function showMyActivity(){
+       
+       $user =  User::where('id',auth()->user()->id)->with('activity_logs')->get()->first();
+       return view('activity-log',['activity_logs'=>$user->activity_logs]);
+       
     }
  
 }
