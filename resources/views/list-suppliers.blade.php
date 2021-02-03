@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title','Users')
+@section('title','Suppliers')
 
 @section('content')
 <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
