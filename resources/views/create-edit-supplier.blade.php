@@ -32,10 +32,10 @@
                 <div class="form-group mb-4">
                     <label class="control-label">Country Of Origin </label>
                     <select class="custom-select mb-4" name="country_of_origin" value="{{$supplier->country_of_origin ?? ''}}">
-                        <option selected>--Country--</option>
-                        <option value="Germany">Germany</option>
-                        <option value="USA">USA</option>
-                        <option value="China">China</option>
+
+                        <option value="Germany" {{ ($supplier->country_of_origin=="Germany")? "selected" : "" }}>Germany</option>
+                        <option value="USA" {{ ($supplier->country_of_origin=="USA")? "selected" : "" }}>USA</option>
+                        <option value="China" {{ ($supplier->country_of_origin=="China")? "selected" : "" }}>China</option>
                     </select>
 
                 </div>
@@ -57,16 +57,20 @@
                         <input type="text" name="email" class="form-control" value="{{$supplier->email ?? ''}}">
                     </div>
                 </div>
-                <div class="form-group mb-4" value="{{$supplier->status ?? ''}}">
+                <div class="form-group mb-4" >
                     <label class="control-label">Status</label>
                     {{-- <input type="text" name="status" class="form-control" value="{{$supplier->status ?? ''}}">
                  --}}
+                 {{-- <div class="custom-control custom-radio custom-control-inline" >
+                    <input type="radio"  id="option1" name="status" value="inactive"  {{ ($supplier->status=="inactive")? "checked" : "" }} >inactive</label>
+                    <input type="radio" id="option2" name="status" value="active" {{ ($supplier->status=="active")? "checked" : "" }} >active</label>
+                </div> --}}
                     <div class="custom-control custom-radio custom-control-inline" >
-                        <input type="radio" value="active" id="active" name="status" class="custom-control-input">
+                        <input type="radio" value="active" {{ ($supplier->status=="active")? "checked" : "" }} id="active" name="status" class="custom-control-input">
                         <label class="custom-control-label" for="active">Active</label>
                         </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" value="inactive" id="inactive" name="status" class="custom-control-input">
+                        <input type="radio" value="inactive" {{ ($supplier->status=="inactive")? "checked" : "" }} id="inactive" name="status" class="custom-control-input">
                         <label class="custom-control-label" for="inactive">Inactive</label>
                     </div>
 
