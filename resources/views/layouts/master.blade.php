@@ -71,8 +71,8 @@
                             <div class="media mx-auto">
                                 <img src="assets/img/profile-17.jpg" class="img-fluid mr-2" alt="avatar">
                                 <div class="media-body">
-                                    <h5>Sonia Shaw</h5>
-                                    <p>Project Leader</p>
+                                    <h5>{{auth()->user()->name}}</h5>
+                                    <p>{{auth()->user()->type}}</p>
                                 </div>
                             </div>
                         </div>
