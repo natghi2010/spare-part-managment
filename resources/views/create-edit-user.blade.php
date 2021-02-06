@@ -15,21 +15,21 @@
             </div>
         </div>
 
-        
+
         <div class="widget-content widget-content-area">
             <form class="form-vertical" action="{{ route( isset($user->id) ? 'update-user':'store-user')}}" method="POST">
 
                 @csrf
-                
+
                 @if(isset($user->id))
                     <input name="id" type="text" value="{{$user->id}}" readonly hidden>
                 @endif
-                
+
                 <div class="form-group mb-4">
                     <label class="control-label">Name </label>
                     <input type="text" name="name" class="form-control" value="{{$user->name ?? ''}}">
                 </div>
-           
+
                 <div class="form-group mb-4">
                     <label class="control-label">Email:</label>
                     <div class="input-group">
@@ -41,9 +41,21 @@
                 </div>
                 <div class="form-group mb-4">
                     <label class="control-label">Type</label>
-                    <input type="text" name="type" class="form-control" value="{{$user->type ?? ''}}">
+                    <select class="custom-select mb-4" name="type" value="{{$user->type ?? ''}}">
+                        <option selected>Type</option>
+                        <option value="Admin" @if (isset($user->id))
+                            {{($user->type === 'Admin') ? 'Selected' : ''}}
+                            @endif>Admin</option>
+                        <option value="Employee" @if (isset($user->id))
+                            {{($user->type === 'Employee') ? 'Selected' : ''}}
+                            @endif>Employee</option>
+                        <option value="Manager" @if (isset($user->id))
+                            {{($user->type === 'Manager') ? 'Selected' : ''}}
+                            @endif>Manager</option>
+                    </select>
+
                 </div>
-           
+
 
                 <button type="submit" class="btn btn-primary mt-3">{{isset($user->id) ? 'Update' : 'Submit'}} </button>
             </form>

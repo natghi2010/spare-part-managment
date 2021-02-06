@@ -33,9 +33,16 @@
                     <label class="control-label">Country Of Origin </label>
                     <select class="custom-select mb-4" name="country_of_origin" value="{{$supplier->country_of_origin ?? ''}}">
 
-                        <option value="Germany" {{ ($supplier->country_of_origin=="Germany")? "selected" : "" }}>Germany</option>
-                        <option value="USA" {{ ($supplier->country_of_origin=="USA")? "selected" : "" }}>USA</option>
-                        <option value="China" {{ ($supplier->country_of_origin=="China")? "selected" : "" }}>China</option>
+                        <option selected>Country Of Origin</option>
+                        <option value="Germany"  @if (isset($supplier->id))
+                            {{ ($supplier->country_of_origin=="Germany")? "selected" : "" }}
+                            @endif >Germany</option>
+                        <option value="USA" @if (isset($supplier->id))
+                            {{ ($supplier->country_of_origin=="USA")? "selected" : "" }}
+                            @endif  >USA</option>
+                        <option value="China" @if (isset($supplier->id))
+                            {{ ($supplier->country_of_origin=="China")? "selected" : "" }}
+                            @endif  >China</option>
                     </select>
 
                 </div>
@@ -65,14 +72,19 @@
                     <input type="radio"  id="option1" name="status" value="inactive"  {{ ($supplier->status=="inactive")? "checked" : "" }} >inactive</label>
                     <input type="radio" id="option2" name="status" value="active" {{ ($supplier->status=="active")? "checked" : "" }} >active</label>
                 </div> --}}
-                    <div class="custom-control custom-radio custom-control-inline" >
-                        <input type="radio" value="active" {{ ($supplier->status=="active")? "checked" : "" }} id="active" name="status" class="custom-control-input">
-                        <label class="custom-control-label" for="active">Active</label>
-                        </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" value="inactive" {{ ($supplier->status=="inactive")? "checked" : "" }} id="inactive" name="status" class="custom-control-input">
-                        <label class="custom-control-label" for="inactive">Inactive</label>
+                <div class="custom-control custom-radio custom-control-inline" >
+                    <input type="radio" value="active" @if (isset($supplier->id))
+                    {{ ($supplier->status=="active")? "checked" : "" }}
+                    @endif  id="active" name="status" class="custom-control-input">
+                    <label class="custom-control-label" for="active">Active</label>
                     </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" value="inactive" @if (isset($supplier->id))
+                    {{ ($supplier->status=="inactive")? "checked" : "" }}
+                    @endif id="inactive" name="status" class="custom-control-input">
+                    <label class="custom-control-label" for="inactive">Inactive</label>
+                </div>
+
 
                 </div>
 
