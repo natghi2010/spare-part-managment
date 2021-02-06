@@ -18,6 +18,7 @@
                         <th>Email</th>
                         <th>Adress</th>
                         <th>Contact-person</th>
+                        <th>Status</th>
 
                         <th class="no-content"></th>
                     </tr>
@@ -33,6 +34,8 @@
                         <td>{{$customer->email}}</td>
                         <td>{{$customer->adress}}</td>
                         <td>{{$customer->contact_person}}</td>
+                        <td>{{$customer->status}}</td>
+
 
 
 
@@ -55,6 +58,7 @@
                         <th>Email</th>
                         <th>Adress</th>
                         <th>Contact-person</th>
+                        <th>Status</th>
                         <th></th>
                     </tr>
                 </tfoot>
