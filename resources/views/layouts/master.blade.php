@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,600,700&amp;display=swap" rel="stylesheet">
     <link href="{{asset('bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('assets/css/plugins.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('assets/css/plugins.css')}}" rel="stylesheet" type="text/css" />
+
 
     <link rel="stylesheet" type="text/css" href="{{asset('plugins/table/datatable/datatables.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('plugins/table/datatable/dt-global_style.css')}}">
@@ -21,7 +21,7 @@
 
 
     <!-- END GLOBAL MANDATORY STYLES -->
-    
+
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
 
     <style>
@@ -38,14 +38,14 @@
     </style>
 
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
-    
+
 </head>
 <body class="sidebar-noneoverflow">
-    
+
     <!--  BEGIN NAVBAR  -->
     <div class="header-container fixed-top">
         <header class="header navbar navbar-expand-sm">
-            
+
             <ul class="navbar-nav theme-brand flex-row  text-center">
                 <li class="nav-item theme-logo">
                     <a href="index-2.html">
@@ -111,17 +111,17 @@
 
     @include('components.sidebar')
         <!--  END SIDEBAR  -->
-        
+
         <!--  BEGIN CONTENT AREA  -->
         <div id="content" class="main-content">
             <div class="layout-px-spacing">
 
 
                 <!-- CONTENT AREA -->
-                
+
 
                 <div class="row layout-top-spacing">
-                    
+
                    @yield('content')
 
                 </div>
