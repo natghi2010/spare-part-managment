@@ -21,6 +21,7 @@ class CreateCustomersTable extends Migration
             $table->string('tin_number')->max(10)->unique();
             $table->string('address')->max(10)->unique();
             $table->string('contact_person')->max(10)->unique();
+            $table->string('status')->default('Active');
             $table->timestamps();
         });
     }

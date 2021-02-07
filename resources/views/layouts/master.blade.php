@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,600,700&amp;display=swap" rel="stylesheet">
     <link href="{{asset('bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('assets/css/plugins.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('assets/css/plugins.css')}}" rel="stylesheet" type="text/css" />
+
 
     <link rel="stylesheet" type="text/css" href="{{asset('plugins/table/datatable/datatables.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('plugins/table/datatable/dt-global_style.css')}}">
@@ -21,7 +21,7 @@
 
 
     <!-- END GLOBAL MANDATORY STYLES -->
-    
+
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
 
     <style>
@@ -38,14 +38,14 @@
     </style>
 
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
-    
+
 </head>
 <body class="sidebar-noneoverflow">
-    
+
     <!--  BEGIN NAVBAR  -->
     <div class="header-container fixed-top">
         <header class="header navbar navbar-expand-sm">
-            
+
             <ul class="navbar-nav theme-brand flex-row  text-center">
                 <li class="nav-item theme-logo">
                     <a href="index-2.html">
@@ -71,8 +71,8 @@
                             <div class="media mx-auto">
                                 <img src="assets/img/profile-17.jpg" class="img-fluid mr-2" alt="avatar">
                                 <div class="media-body">
-                                    <h5>Sonia Shaw</h5>
-                                    <p>Project Leader</p>
+                                    <h5>{{auth()->user()->name}}</h5>
+                                    <p>{{auth()->user()->type}}</p>
                                 </div>
                             </div>
                         </div>
@@ -92,7 +92,7 @@
                             </a>
                         </div>
                         <div class="dropdown-item">
-                            <a href="auth_login.html">
+                            <a href="/logout">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg> <span>Log Out</span>
                             </a>
                         </div>
@@ -111,17 +111,17 @@
 
     @include('components.sidebar')
         <!--  END SIDEBAR  -->
-        
+
         <!--  BEGIN CONTENT AREA  -->
         <div id="content" class="main-content">
             <div class="layout-px-spacing">
 
 
                 <!-- CONTENT AREA -->
-                
+
 
                 <div class="row layout-top-spacing">
-                    
+
                    @yield('content')
 
                 </div>

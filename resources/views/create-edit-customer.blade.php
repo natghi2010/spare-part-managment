@@ -56,6 +56,23 @@
                     <input type="text" name="contact_person" class="form-control" value="{{$customer->contact_person ?? ''}}">
                 </div>
 
+                <div class="form-group mb-4" >
+                    <label class="control-label">Status</label>
+
+                <div class="custom-control custom-radio custom-control-inline" >
+                    <input type="radio" value="active" @if (isset($customer->id))
+                    {{ ($customer->status=="active")? "checked" : "" }}
+                    @endif  id="active" name="status" class="custom-control-input">
+                    <label class="custom-control-label" for="active">Active</label>
+                    </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" value="inactive" @if (isset($customer->id))
+                    {{ ($customer->status=="inactive")? "checked" : "" }}
+                    @endif id="inactive" name="status" class="custom-control-input">
+                    <label class="custom-control-label" for="inactive">Inactive</label>
+                </div>
+
+
                 <button type="submit" class="btn btn-primary mt-3">{{isset($customer->id) ? 'Update' : 'Submit'}} </button>
             </form>
 

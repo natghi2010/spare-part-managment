@@ -35,6 +35,7 @@ class CustomerController extends Controller
         $customer->tin_number = $request->tin_number;
         $customer->address = $request->address;
         $customer->contact_person = $request->contact_person;
+        $customer->status = $request->status;
 
         $customer->save();
 
@@ -49,7 +50,8 @@ class CustomerController extends Controller
         $customer->tin_number = $request->tin_number;
         $customer->address = $request->address;
         $customer->contact_person = $request->contact_person;
-        
+        $customer->status = $request->status;
+
         $customer->save();
 
         return redirect(route('edit-customer',['id'=>$request->id]))->with('mssg','Successfully Update Customer');
