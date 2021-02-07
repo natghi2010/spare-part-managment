@@ -5,6 +5,8 @@
             <li class="nav-item theme-logo">
                 <a href="index-2.html">
                     <img src="{{asset('assets/img/logo.svg')}}" class="navbar-logo" alt="logo">
+                  
+
                 </a>
             </li>
             <li class="nav-item theme-text">
@@ -28,6 +30,7 @@
                             <div class="media-body">
                                 <h5>Sonia Shaw</h5>
                                 <p>Project Leader</p>
+                                
                             </div>
                         </div>
                     </div>
