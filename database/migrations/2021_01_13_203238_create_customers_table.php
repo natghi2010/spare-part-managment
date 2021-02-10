@@ -17,7 +17,7 @@ class CreateCustomersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('phone')->max(10)->unique();
+            $table->integer('phone')->max(10)->min(10)->unique();
             $table->string('tin_number')->max(10)->unique();
             $table->string('address')->max(10)->unique();
             $table->string('contact_person')->max(10)->unique();
