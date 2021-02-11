@@ -87,6 +87,19 @@ Route::middleware(['auth'])->group(function(){
     
     });
     //customer end
+
+    Route::prefix('parts')->group(function () {
+ 
+        Route::get('/','PartController@index')->name('parts');
+        Route::get('/{id}','PartController@show')->name('parts');
+        
+    });
+    Route::prefix('vehicle')->group(function () {
+ 
+        Route::get('/','VehicleController@index')->name('parts');
+        Route::get('/{id}','VehicleController@show')->name('parts');
+        
+    });
     
 
     Route::get('/logout',function(){

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Vehicles extends Model
+class PartType extends Model
 {
-    //
+    protected $table = "part_type";
 }

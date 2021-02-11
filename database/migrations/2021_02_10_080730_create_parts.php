@@ -27,7 +27,7 @@ class CreateParts extends Migration
                      ->references('id')
                      ->on('part_type')
                      ->onDelete('cascade');
-            $table->string('quality');
+            $table->bigInteger('qty')->default(0);
             $table->timestamps();
         });
     }

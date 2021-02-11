@@ -26,15 +26,28 @@ class DatabaseSeeder extends Seeder
         //creates fake 10 customers
       
             $faker = Faker::create();
-        	foreach (range(1,100) as $index) {
+        	foreach (range(1,10) as $index) {
 	        DB::table('customers')->insert([
 	            'name' => $faker->name,
 	            'email' => $faker->email,
-	            'phone' => rand(10000,40000),
-	            'tin_number' => $faker->numberBetween(10000,50000000)
+	            'phone' => '+251911'.$faker->numberBetween(100000,900000),
+	            'address' => 'Bole',
+	            'tin_number' => $faker->numberBetween(1000000000,9000000000)
+	        ]);
+
+            $faker = Faker::create();
+        	foreach (range(1,10) as $index) {
+	        DB::table('suppliers')->insert([
+	            'name' => $faker->name,
+	            'email' => $faker->email,
+                'phone' => '+251911'.$faker->numberBetween(100000,900000),
+                'country_of_origin' => 'China',
+                'tin_number' => $faker->numberBetween(1000000000,9000000000)
 	        ]);
 	
         }
+
+    }
 
         // $this->call(UsersTableSeeder::class);
     }
