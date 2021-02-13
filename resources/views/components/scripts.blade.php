@@ -4,7 +4,7 @@
    <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
    <script src="{{asset('plugins/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
    <script src="{{asset('assets/js/app.js')}}"></script>
-   
+
    <script>
        $(document).ready(function() {
            App.init();
@@ -12,7 +12,7 @@
    </script>
    <script src="{{asset('assets/js/custom.js')}}"></script>
 
-   
+
     <!-- BEGIN PAGE LEVEL SCRIPTS -->
     <script src="{{asset('plugins/table/datatable/datatables.js')}}"></script>
     <script>
@@ -26,6 +26,6 @@
             },
             "stripeClasses": [],
             "lengthMenu": [7, 10, 20, 50],
-            "pageLength": 7 
+            "pageLength": 7
         });
     </script>

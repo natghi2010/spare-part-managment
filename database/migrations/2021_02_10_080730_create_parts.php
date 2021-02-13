@@ -15,7 +15,7 @@ class CreateParts extends Migration
     {
         Schema::create('parts', function (Blueprint $table) {
             $table->id();
-            $table->integer('part_no');
+            $table->bigInteger('part_no');
             $table->string('name');
             $table->bigInteger('vehicle_id')->unsigned();
             $table->foreign('vehicle_id')
