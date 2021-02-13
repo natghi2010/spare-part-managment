@@ -122,7 +122,13 @@ Route::middleware(['auth'])->group(function(){
         Route::post('/','PartController@storeType')->name('store-part-types');
         Route::post('/update','PartController@updateType')->name('update-part-types');
 
+    });
 
+    Route::prefix('transaction')->group(function () {
+
+        Route::get('/buy','TransactionController@loadBuyForm')->name('buy-parts');
+        Route::get('/sell','TransactionController@loadSellForm')->name('sell-parts');
+    
     });
 
 
