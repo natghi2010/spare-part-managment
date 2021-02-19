@@ -13,7 +13,7 @@ class CreateTransactionTable extends Migration
      */
     public function up()
     {
-        Schema::create('transaction', function (Blueprint $table) {
+        Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->string('transaction_id')->nullable();
             $table->string('type')->nullable();
@@ -25,7 +25,7 @@ class CreateTransactionTable extends Migration
             $table->float('price')->nullable();
             $table->bigInteger('qty')->nullable();
             $table->bigInteger('new_balance')->nullable();
-            $table->bigInteger('date')->nullable();
+            $table->string('date')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
         });
