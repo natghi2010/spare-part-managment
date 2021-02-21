@@ -14,7 +14,6 @@ use App\Vehicle;
 
 class Transaction extends Model
 {
-    protected $table = 'transaction';
 
     protected $fillable = [
         'new_balance',

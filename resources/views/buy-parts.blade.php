@@ -24,14 +24,14 @@
 
                 <div class="form-group mb-4 col-md-8 col-xs-12">
                     <label class="control-label">Supplier</label>
-                    <select class="custom-select mb-4" name="supplier_id" value="{{$supplier->id ?? ''}}">
+                    <select class="custom-select mb-4" name="supplier_id" >
 
                         <option selected disabled value="">--Select Supplier--</option>
-                       
+
                         @foreach($suppliers as $supplier)
                         <option value="{{$supplier->id}}" >{{$supplier->name}}</option>
                         @endforeach
-                  
+
                     </select>
 
                 </div>
@@ -45,18 +45,18 @@
                     <select class="custom-select mb-4" name="vehicle_id" id="vehicle_id" value="{{$vehicle->id ?? ''}}">
 
                         <option selected disabled value="">--Select Vehicle--</option>
-                       
+
                         @foreach($vehicles as $vehicle)
                         <option value="{{$vehicle->id}}" >{{$vehicle->model}}</option>
                         @endforeach
-                  
+
                     </select>
 
                 </div>
 
                 <div class="form-group mb-4 col-md-4 col-xs-12" id="part_type_container"></div>
                 <div class="form-group mb-4 col-md-4 col-xs-12" id="part_container"> </div>
-      
+
 
         </div>
 
