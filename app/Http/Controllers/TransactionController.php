@@ -8,6 +8,7 @@ use App\Suppliers;
 use App\Transaction;
 use App\Vehicle;
 use App\ActivityLog;
+use App\Customers;
 use Illuminate\Http\Request;
 
 class TransactionController extends Controller
@@ -22,7 +23,10 @@ class TransactionController extends Controller
 
     public function loadSellForm()
     {
-        return view('sell-parts');
+        $customers = Customers::all();
+        $parts = Parts::all();
+        $vehicles = Vehicle::all();
+        return view('sell-parts',compact('customers', 'parts', 'vehicles'));
     }
 
 
@@ -63,9 +67,9 @@ class TransactionController extends Controller
         //updating balances
         $transaction->update(['new_balance' => $new_balance, 'transaction_id' => $transaction_id]);
         $transaction->part->update(['qty' => $new_balance]);
-        
-        
-        
+
+
+
         $transaction->part->update(['qty' => $new_balance]);
 
 
@@ -74,13 +78,48 @@ class TransactionController extends Controller
         return redirect(route('dashboard'));
     }
 
-    public function sellPart()
+    public function sellPart(Request $request)
     {
         $transaction  =  new Transaction;
         $transaction->type = 'Sell';
 
+
+
+
+
+        $transaction->user_id = auth()->user()->id;
+
+        //from form
+        $transaction->customer_id = $request->customer_id;
+        $transaction->vehicle_id = $request->vehicle_id;
+        $transaction->part_type_id = $request->part_type_id;
+        $transaction->part_id = $request->part_id;
+        $transaction->qty = $request->qty;
+        $transaction->price = $request->price;
+        $transaction->date = $request->date;
+
+
+
         $transaction->save();
 
-        Parts::find($transaction->part_id)->update(['qty' => $transaction->new_balance]);
+        $new_balance =  $transaction->part->qty - $transaction->qty;
+        $transaction_id = 'TRBY-' . (1000 + $transaction->id);
+
+        //updating balances
+        $transaction->update(['new_balance' => $new_balance, 'transaction_id' => $transaction_id]);
+        $transaction->part->update(['qty' => $new_balance]);
+
+
+
+        $transaction->part->update(['qty' => $new_balance]);
+
+
+        ActivityLog::create(['user_id'=>auth()->user()->id,'action'=>'sold '.$transaction->part->name]);
+
+        return redirect(route('dashboard'));
+
+
+
+
     }
 }
