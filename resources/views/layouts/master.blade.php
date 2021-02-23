@@ -18,6 +18,9 @@
     <link rel="stylesheet" type="text/css" href="{{asset('plugins/table/datatable/dt-global_style.css')}}">
     <link rel="stylesheet" href="{{asset('plugins/font-icons/fontawesome/css/regular.css')}}">
     <link rel="stylesheet" href="{{asset('plugins/font-icons/fontawesome/css/fontawesome.css')}}">
+    <link rel="stylesheet" href="{{asset('plugins/apex/apexcharts.css')}}">
+    <link href="assets/css/dashboard/dash_1.css" rel="stylesheet" type="text/css" />
+
 
 
     <!-- END GLOBAL MANDATORY STYLES -->
@@ -118,7 +121,6 @@
 
 
                 <!-- CONTENT AREA -->
-
 
                 <div class="row layout-top-spacing">
 

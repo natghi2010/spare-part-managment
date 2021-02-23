@@ -147,6 +147,10 @@ var d_2options2 = {
         Revenue Monthly | Options
     =================================
 */
+
+
+
+
 var options1 = {
   chart: {
     fontFamily: 'Nunito, sans-serif',
@@ -162,9 +166,11 @@ var options1 = {
       left: -7,
       top: 22
     },
+
     toolbar: {
-      show: false
+      show: true
     },
+
     events: {
       mounted: function(ctx, config) {
         const highest1 = ctx.getHighestValueInSeries(0);
@@ -254,13 +260,13 @@ var options1 = {
       lineCap: 'square'
   },
   series: [{
-      name: 'Income',
-      data: [16800, 16800, 15500, 17800, 15500, 17000, 19000, 16000, 15000, 17000, 14000, 17000]
+      name: 'Buy',
+      data: [16800, 16800, 15500, 17800, 15500, 17000]
   }, {
-      name: 'Expenses',
-      data: [16500, 17500, 16200, 17300, 16000, 19500, 16000, 17000, 16000, 19000, 18000, 19000]
+      name: 'Sell',
+      data: [16500, 17500, 16200, 17300, 16000, 19500]
   }],
-  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+  labels: ['Mon', 'Tue', 'Wed', 'Thur', 'Friday', 'Sat'],
   xaxis: {
     axisBorder: {
       show: false
@@ -438,7 +444,7 @@ var options = {
       width: 25,
     },
     series: [985, 737, 270],
-    labels: ['Apparel', 'Electronic', 'Others'],
+    labels: ['Engine', 'Body', 'Others'],
     responsive: [{
         breakpoint: 1599,
         options: {

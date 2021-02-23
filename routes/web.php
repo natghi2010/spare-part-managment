@@ -135,6 +135,9 @@ Route::middleware(['auth'])->group(function(){
         Route::get('forms/{componentType}','TransactionController@loadFormComponent');
         Route::get('forms/{componentType}/{part_type_id}','TransactionController@loadFormComponent');
 
+        Route::get('graphs/daily','TransactionController@loadDailyGraphData');
+        Route::get('graphs/sales/part-type','TransactionController@loadTopSellingPartTypeGraphData');
+
 
     });
 

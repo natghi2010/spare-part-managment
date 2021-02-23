@@ -8,6 +8,12 @@
    {{-- My scripts --}}
    <script src="{{asset('assets/js/spare-part.js')}}"></script>
 
+    <script src="{{asset('plugins/apex/apexcharts.min.js')}}"></script>
+    <script src="{{asset('assets/js/dashboard/dash_1.js')}}"></script>
+    
+    <script src="{{asset('assets/js/dashboard/graph-functions.js')}}"></script>
+    <script src="{{asset('assets/js/dashboard/custom-graphs.js')}}"></script>
+
    <script>
        $(document).ready(function() {
            App.init();

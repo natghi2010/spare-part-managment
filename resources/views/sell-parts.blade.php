@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12 col-12 bg-danger">
                     <h4>Sell Parts</h4>
-                    <p class="text-success">{{session('mssg')}}</p>
+                  
                 </div>
             </div>
         </div>
@@ -81,6 +81,7 @@
     </div>
 
     <center>
+        <p class="text-danger">{{session('mssg')}}</p>
         <button class="btn btn-danger" id="processTransaction" disabled type="submit">Process Sell Transcation</button>
     </center>
 
