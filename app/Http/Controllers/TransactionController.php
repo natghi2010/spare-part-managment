@@ -147,6 +147,9 @@ class TransactionController extends Controller
         $labels = [];
         $buy_values = [];
         $sell_values = [];
+        $total_buy= 2000 ;
+        $total_sale = 5000 ;
+        $total_profit = $total_sale - $total_buy;
 
         foreach($buy_daily_results as $date=>$transaction){
             array_push($labels,$date);
@@ -161,7 +164,8 @@ class TransactionController extends Controller
         return array(
             'labels'=>$labels,
             'buy_values'=>$buy_values,
-            'sell_values'=>$sell_values
+            'sell_values'=>$sell_values,
+            'total_profit'=>$total_profit
         );
 
     }
@@ -217,6 +221,8 @@ class TransactionController extends Controller
         $last_week_values = [];
         $sale_values = [];
 
+
+
         foreach($last_week as $date=>$transaction){
             array_push($labels,$date);
             array_push($last_week_values,$transaction);
@@ -230,8 +236,12 @@ class TransactionController extends Controller
         return array(
             'labels'=>$labels,
             'last_week_values'=>$last_week_values,
-            'sale_values'=>$sale_values
+            'sale_values'=>$sale_values,
+
+
+
         );
+
 
     }
 

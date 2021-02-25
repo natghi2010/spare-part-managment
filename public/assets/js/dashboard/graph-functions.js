@@ -93,7 +93,7 @@ function drawLineGraph(data,elementID){
           }
         },
         title: {
-          text: '$10,840',
+          text:  data.total_profit,
           align: 'left',
           margin: 0,
           offsetX: -10,

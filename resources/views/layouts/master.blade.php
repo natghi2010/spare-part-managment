@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="{{asset('plugins/font-icons/fontawesome/css/regular.css')}}">
     <link rel="stylesheet" href="{{asset('plugins/font-icons/fontawesome/css/fontawesome.css')}}">
     <link rel="stylesheet" href="{{asset('plugins/apex/apexcharts.css')}}">
-    <link href="assets/css/dashboard/dash_1.css" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets/css/dashboard/dash_1.css')}}" rel="stylesheet" type="text/css" />
 
 
 
@@ -72,7 +72,7 @@
                     <div class="dropdown-menu position-absolute animated fadeInUp" aria-labelledby="userProfileDropdown">
                         <div class="user-profile-section">
                             <div class="media mx-auto">
-                                <img src="assets/img/profile-17.jpg" class="img-fluid mr-2" alt="avatar">
+                                <img src="{{asset('assets/img/profile-17.jpg')}}" class="img-fluid mr-2" alt="avatar">
                                 <div class="media-body">
                                     <h5>{{auth()->user()->name}}</h5>
                                     <p>{{auth()->user()->type}}</p>
