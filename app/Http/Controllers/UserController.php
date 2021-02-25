@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    
+
     //display all users
     public function index(){
         $users = User::all();
@@ -42,7 +42,7 @@ class UserController extends Controller
         $activity_log->save();
          //Logging Activity END
 
-        return redirect(route('users'));
+        return redirect(route('users'))->with('mssg','Successfully created a User');
     }
 
     public function update(Request $request){
@@ -64,10 +64,10 @@ class UserController extends Controller
         return view('activity-log',['activity_logs'=>$activity_logs]);
     }
     public function showMyActivity(){
-       
+
        $user =  User::where('id',auth()->user()->id)->with('activity_logs')->get()->first();
        return view('activity-log',['activity_logs'=>$user->activity_logs]);
-       
+
     }
- 
+
 }

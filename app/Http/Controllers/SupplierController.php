@@ -36,7 +36,7 @@ class SupplierController extends Controller
 
         $supplier->save();
 
-        return redirect(route('suppliers'));
+        return redirect(route('suppliers'))->with('mssg','Successfully created a Supplier');
     }
 
     public function update(Request $request){

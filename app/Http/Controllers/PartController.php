@@ -54,12 +54,7 @@ class PartController extends Controller
         $parts->qty= $request->qty;
         $parts->save();
 
-
-
-
-
-
-        return redirect(route('parts'));
+        return redirect(route('parts'))->with('mssg','Successfully created a Part');
     }
 
     public function storeType(Request $request){
@@ -67,7 +62,7 @@ class PartController extends Controller
         $part_type = new PartType;
         $part_type->name = $request->name;
         $part_type->save();
-        return redirect(route('part-types'));
+        return redirect(route('part-types'))->with('mssg','Successfully created a Part Type');
     }
 
 

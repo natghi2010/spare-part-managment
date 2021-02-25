@@ -38,7 +38,7 @@ class VehicleController extends Controller
 
         $vehicle->save();
 
-        return redirect(route('vehicles'));
+        return redirect(route('vehicles'))->with('mssg','Successfully created a vehicle');
     }
 
     public function update(Request $request){

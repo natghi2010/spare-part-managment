@@ -7,6 +7,7 @@
     <div class="widget-content widget-content-area br-6">
         <a href="{{route('create-supplier')}}" class="btn btn-info">Add Supplier</a>
         <div class="table-responsive mb-4 mt-4">
+            <p class="text-success">{{session('mssg')}}</p>
 
 
             <table id="zero-config" class="table table-hover" style="width:100%">

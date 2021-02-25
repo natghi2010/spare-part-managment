@@ -39,7 +39,7 @@ class CustomerController extends Controller
 
         $customer->save();
 
-        return redirect(route('customers'));
+        return redirect(route('customers'))->with('mssg','Successfully created a Customer');
     }
 
     public function update(Request $request){
