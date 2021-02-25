@@ -28,15 +28,16 @@
 
 
                 <div class="form-group mb-4">
-                    <label class="control-label">part_no </label>
+                    <label class="control-label">Part Number </label>
                     <input type="text" name="part_no" class="form-control" value="{{$part->part_no ?? ''}}">
                 </div>
                 <div class="form-group mb-4">
-                    <label class="control-label">name </label>
+                    <label class="control-label">Name </label>
                     <input type="text" name="name" class="form-control" value="{{$part->name ?? ''}}">
                 </div>
-                <div class="form-group mb-4 col-md-5">
-                    <label class="control-label">vehicle </label>
+                <div class="row">
+                <div class="form-group  mb-4 col-md-6 col-xs-12 ">
+                    <label class="control-label">Vehicle </label>
                     <select class="custom-select mb-4" name="vehicle_id" value="{{$part->vehicle_id ?? ''}}">
 
                         <option selected disabled value="">vehicle</option>
@@ -51,8 +52,9 @@
                     </select>
 
                 </div>
-                <div class="form-group mb-4 col-md-5">
-                    <label class="control-label">Part Type </label>
+
+                <div class="form-group mb-4 col-md-6 col-xs-12 ">
+                    <label class="control-label  ">Part Type </label>
                     <select class="custom-select mb-4" name="part_type_id" value="{{$part->part_type_id ?? ''}}">
 
 
@@ -67,14 +69,13 @@
                     </select>
 
                 </div>
-                <div class="form-group mb-4 col-md-3">
+            </div>
+            <div class="row">
+                <div class="form-group mb-4 col-md-6 col-xs-12">
                     <label class="control-label">Quantity</label>
                     <input type="number" name="qty" class="form-control" value="{{$part->qty ?? ''}}" @if(isset($part->id)) readonly @endif>
                 </div>
-
-
-
-
+            </div>
 
                 <button type="submit" class="btn btn-primary mt-3">{{isset($part->id) ? 'Update' : 'Submit'}} </button>
             </form>
