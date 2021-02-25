@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\ActivityLog;
-
-
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -67,7 +66,19 @@ class UserController extends Controller
 
        $user =  User::where('id',auth()->user()->id)->with('activity_logs')->get()->first();
        return view('activity-log',['activity_logs'=>$user->activity_logs]);
+   
+    }
 
+
+
+    public function createTimeStampAlias(){
+        $activity_logs = ActivityLog::all();
+        $now = Carbon::now();
+        foreach($activity_logs as $log){
+            $log->duration = $log->created_at->diffForHumans($now);      
+        }
+        return $activity_logs;
+        
     }
 
 }
