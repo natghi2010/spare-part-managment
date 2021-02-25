@@ -17,16 +17,16 @@ function drawLineGraph(data,elementID){
             left: -7,
             top: 22
           },
-      
+
           toolbar: {
             show: true
           },
-      
+
           events: {
             mounted: function(ctx, config) {
               const highest1 = ctx.getHighestValueInSeries(0);
               const highest2 = ctx.getHighestValueInSeries(1);
-      
+
               ctx.addPointAnnotation({
                 x: new Date(ctx.w.globals.seriesX[0][ctx.w.globals.series[0].indexOf(highest1)]).getTime(),
                 y: highest1,
@@ -42,7 +42,7 @@ function drawLineGraph(data,elementID){
                     offsetY: 5
                 }
               })
-      
+
               ctx.addPointAnnotation({
                 x: new Date(ctx.w.globals.seriesX[1][ctx.w.globals.series[1].indexOf(highest2)]).getTime(),
                 y: highest2,
@@ -141,7 +141,7 @@ function drawLineGraph(data,elementID){
         yaxis: {
           labels: {
             formatter: function(value, index) {
-              return (value / 1) 
+              return (value / 1)
             },
             offsetX: -22,
             offsetY: 0,
@@ -159,7 +159,7 @@ function drawLineGraph(data,elementID){
               lines: {
                   show: true
               }
-          },   
+          },
           yaxis: {
               lines: {
                   show: false,
@@ -170,8 +170,8 @@ function drawLineGraph(data,elementID){
             right: 0,
             bottom: 0,
             left: -10
-          }, 
-        }, 
+          },
+        },
         legend: {
           position: 'top',
           horizontalAlign: 'right',
@@ -188,7 +188,7 @@ function drawLineGraph(data,elementID){
             onClick: undefined,
             offsetX: 0,
             offsetY: 0
-          },    
+          },
           itemMargin: {
             horizontal: 0,
             vertical: 20
@@ -223,12 +223,12 @@ function drawLineGraph(data,elementID){
           },
         }]
       }
-    
+
       var chart1 = new ApexCharts(
         document.querySelector("#"+elementID),
         options1
     );
-    
+
     chart1.render();
     }
 
@@ -312,7 +312,7 @@ function drawDoughnutGraph(data,elementID){
                     position: 'bottom'
                 }
             },
-    
+
             breakpoint: 1439,
             options: {
                 chart: {
@@ -337,6 +337,91 @@ function drawDoughnutGraph(data,elementID){
         document.querySelector("#"+elementID),
         options2
     );
-    
+
     chart2.render();
+}
+//#DRAW BARGRAPH
+function drawBarGraph(data,elementID){
+
+    var d_2options1 = {
+        chart: {
+              height: 160,
+              type: 'bar',
+              stacked: true,
+              stackType: '100%',
+              toolbar: {
+                show: false,
+              }
+          },
+          dataLabels: {
+              enabled: false,
+          },
+          stroke: {
+              show: true,
+              width: 1,
+          },
+          colors: ['#1b55e2', '#e7515a'],
+          responsive: [{
+              breakpoint: 480,
+              options: {
+                  legend: {
+                      position: 'bottom',
+                      offsetX: -10,
+                      offsetY: 0
+                  }
+              }
+          }],
+          series: [{
+              name: 'Sales',
+              data: data.sale_values
+          },{
+              name: 'Last Week',
+              data: data.last_week_values
+          }],
+          xaxis: {
+              labels: {
+                  show: false,
+              },
+              categories: data.labels,
+          },
+          yaxis: {
+              show: false
+          },
+          fill: {
+              opacity: 1
+          },
+          plotOptions: {
+              bar: {
+                  horizontal: false,
+                  endingShape: 'rounded',
+                  columnWidth: '25%',
+              }
+          },
+          legend: {
+              show: false,
+          },
+          grid: {
+              show: false,
+              xaxis: {
+                  lines: {
+                      show: false
+                  }
+              },
+              padding: {
+                top: 10,
+                right: 0,
+                bottom: -40,
+                left: 0
+              },
+          },
+      }
+      var chart3 = new ApexCharts(
+        document.querySelector("#"+elementID),
+        d_2options1
+    );
+
+    chart3.render();
+
+
+
 }

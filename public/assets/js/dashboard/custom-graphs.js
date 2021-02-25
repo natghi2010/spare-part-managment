@@ -13,7 +13,11 @@ $.get('transaction/graphs/sales/part-type',function(resp){
 });
 
 
+$.get('/transaction/graphs/daily-sales',function(resp){
 
+    drawBarGraph(resp,'daily-sales-transaction-graph');
+
+});
 
 
 

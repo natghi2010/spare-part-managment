@@ -79,7 +79,7 @@ class TransactionController extends Controller
     public function sellPart(Request $request)
     {
 
-        
+
         if(Parts::find($request->part_id)->qty < $request->qty){
             return redirect(route('sell-parts'))->with('mssg','The quantity you inserted ('.$request->qty.') is more than the stock ('.Parts::find($request->part_id)->qty.').');
         }
@@ -134,7 +134,7 @@ class TransactionController extends Controller
             "Fri"=>21,
             "Sat"=>50
         );
-        
+
         $sell_daily_results = array(
             "Mon"=>25,
             "Tue"=>31,
@@ -150,11 +150,11 @@ class TransactionController extends Controller
 
         foreach($buy_daily_results as $date=>$transaction){
             array_push($labels,$date);
-            array_push($buy_values,$transaction); 
+            array_push($buy_values,$transaction);
         }
 
         foreach($sell_daily_results as $date=>$transaction){
-            array_push($sell_values,$transaction); 
+            array_push($sell_values,$transaction);
         }
 
 
@@ -165,6 +165,7 @@ class TransactionController extends Controller
         );
 
     }
+
 
     public function loadTopSellingPartTypeGraphData(){
 
@@ -190,7 +191,48 @@ class TransactionController extends Controller
             "values"=>$sell_values
         );
 
-        
+
+    }
+    public function loadDailySalesGraphData(){
+
+        $last_week = array(
+            "Mon"=>20,
+            "Tue"=>30,
+            "Wed"=>40,
+            "Thu"=>25,
+            "Fri"=>21,
+            "Sat"=>50
+        );
+
+        $sales = array(
+            "Mon"=>50,
+            "Tue"=>80,
+            "Wed"=>20,
+            "Thu"=>55,
+            "Fri"=>13,
+            "Sat"=>80
+        );
+
+        $labels = [];
+        $last_week_values = [];
+        $sale_values = [];
+
+        foreach($last_week as $date=>$transaction){
+            array_push($labels,$date);
+            array_push($last_week_values,$transaction);
+        }
+
+        foreach($sales as $date=>$transaction){
+            array_push($sale_values,$transaction);
+        }
+
+
+        return array(
+            'labels'=>$labels,
+            'last_week_values'=>$last_week_values,
+            'sale_values'=>$sale_values
+        );
+
     }
 
 }
