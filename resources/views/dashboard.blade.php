@@ -41,7 +41,7 @@
         <div class="widget-content" style="min-height: 300px;">
             <div class="w-numeric-value">
                 <div class="w-content">
-                    <span class="w-value">Daily sales</span>
+                    <span class="w-value"><span class="text-success">Supply</span> and <span class="text-danger">Demand</span>
                     <span class="w-numeric-title">Go to columns for details.</span>
                 </div>
                 <div class="w-icon">
@@ -51,6 +51,13 @@
             <div class="w-chart">
                 <div id="daily-sales-transaction-graph"></div>
             </div>
+        </div>
+    </div>
+</div>
+<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12 layout-spacing">
+    <div class="widget-two">
+        <div class="widget-content" style="min-height: 300px;">
+          
         </div>
     </div>
 </div>

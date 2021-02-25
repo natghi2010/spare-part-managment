@@ -232,7 +232,7 @@ function drawLineGraph(data,elementID){
     chart1.render();
     }
 
-    //#DRAW DOUGNUT
+//#DRAW DOUGNUT
 function drawDoughnutGraph(data,elementID){
     var options2 = {
         chart: {
@@ -360,7 +360,7 @@ function drawBarGraph(data,elementID){
               show: true,
               width: 1,
           },
-          colors: ['#1b55e2', '#e7515a'],
+          colors: ['#8dbf42', '#e7515a'],
           responsive: [{
               breakpoint: 480,
               options: {

@@ -18,13 +18,3 @@ $.get('/transaction/graphs/daily-sales',function(resp){
     drawBarGraph(resp,'daily-sales-transaction-graph');
 
 });
-
-
-
-
-
-
-
-
-
-
