@@ -9,15 +9,13 @@ use Illuminate\Support\Carbon;
 class DashboardController extends Controller
 {
     public function createTimeStampAlias(){
-        $activity_logs = ActivityLog::all();
-        $now = Carbon::now();
+        $activity_logs = ActivityLog::get()->sortByDesc('id')->skip(0)->take(6);
+
         foreach($activity_logs as $log){
             $log->duration = $log->created_at->diffForHumans(null,true).' ago';
         }
 
-      
-        $sorted = $activity_logs->sortBy('duration')->skip(0)->take(6);
-        return view('dashboard',['activity_logs'=>$sorted]);
+        return view('dashboard',['activity_logs'=>$activity_logs]);
 
     }
 }

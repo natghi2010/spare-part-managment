@@ -78,6 +78,7 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/create','customerController@create')->name('create-customer');
 
         Route::get('/edit/{id}','customerController@edit')->name('edit-customer');
+        Route::get('/{id}','customerController@show')->name('view-customer');
 
 
         Route::post('/','customerController@store')->name('store-customer');
@@ -140,7 +141,7 @@ Route::middleware(['auth'])->group(function(){
 
     });
 
-    Route::get('/test','UserController@createTimeStampAlias');
+    Route::get('/report','ReportController@generateReport')->name('report');
 
 
 
