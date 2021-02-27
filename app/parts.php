@@ -9,9 +9,7 @@ use App\PartType;
 class Parts extends Model
 {
 
-    protected $fillable = [
-        'qty'
-    ];
+    protected $guarded = [];
     
     public function vehicle(){
         return $this->belongsTo(Vehicle::class,'vehicle_id');
