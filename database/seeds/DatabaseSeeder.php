@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\User;
 use Faker\Factory as Faker;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -15,13 +16,17 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-        //creates fake user
+     if(!User::where('email','demo@gmail.com')->get()->count()){
+               //creates fake user
         DB::table('users')->insert([
             'name' =>'Demo',
             'email' => 'demo@gmail.com',
             'password' => Hash::make('password'),
             'type' => 'Admin',
         ]);
+        
+     }
+     
 
         //creates fake 10 customers
       
