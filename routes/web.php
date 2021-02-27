@@ -18,19 +18,17 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
+
 Auth::routes();
 
 
 Route::middleware(['auth'])->group(function(){
 
-    Route::get('/', function () {
-        return view('dashboard');
-    })->name('home');
+    Route::get('/','UserController@createTimeStampAlias')->name('home');
 
 
     Route::prefix('dashboard')->group(function () {
         Route::get('/','UserController@createTimeStampAlias')->name('dashboard');
-
     });
 
 
@@ -65,8 +63,6 @@ Route::middleware(['auth'])->group(function(){
 
         Route::post('/','supplierController@store')->name('store-supplier');
         Route::post('/update','supplierController@update')->name('update-supplier');
-
-
 
 
     });
