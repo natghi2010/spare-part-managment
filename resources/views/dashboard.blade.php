@@ -38,7 +38,7 @@
 
 <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12 layout-spacing">
     <div class="widget-two">
-        <div class="widget-content" style="min-height: 300px;">
+        <div class="widget-content" style="min-height: 300px; ">
             <div class="w-numeric-value">
                 <div class="w-content">
                     <span class="w-value"><span class="text-success">Supply</span> and <span class="text-danger">Demand</span>
@@ -55,11 +55,50 @@
     </div>
 </div>
 <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12 layout-spacing">
-    <div class="widget-two">
-        <div class="widget-content" style="min-height: 300px;">
-          
+
+        <div class="widget-content" style="min-height: 200px; ">
+
+            <div class="widget widget-activity-four" >
+
+                <div class="widget-heading">
+                    <h5 class="">Recent Activities</h5>
+                </div>
+
+                <div class="widget-content" style="min-height: 200px; max-height: 220px;">
+
+                    <div class="mt-container mx-auto">
+                        <div class="timeline-line">
+
+                            @foreach($activity_logs as $logs)
+                            <div class="item-timeline timeline-primary">
+                                <div class="t-dot" data-original-title="" title="">
+                                </div>
+                                <div class="t-text">
+                                    <p>{{$logs->action}}</p>
+                                    <span class="badge badge-success">Completed</span>
+                                    <p class="t-time">{{$logs->duration}}</p>
+                                </div>
+                            </div>
+                            @endforeach
+
+                        </div>
+                        <div class="tm-action-btn">
+                            <a href="{{ route('showUsersActivity')}}">View All
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
         </div>
-    </div>
+
 </div>
 
 

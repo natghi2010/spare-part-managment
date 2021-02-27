@@ -28,9 +28,10 @@ Route::middleware(['auth'])->group(function(){
     })->name('home');
 
 
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::prefix('dashboard')->group(function () {
+        Route::get('/','UserController@createTimeStampAlias')->name('dashboard');
+
+    });
 
 
     //user start
