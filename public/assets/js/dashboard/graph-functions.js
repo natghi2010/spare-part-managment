@@ -93,7 +93,7 @@ function drawLineGraph(data,elementID){
           }
         },
         title: {
-          text:  data.total_profit,
+          text:  Number(data.total_profit).toFixed(2)+'br',
           align: 'left',
           margin: 0,
           offsetX: -10,

@@ -75,7 +75,8 @@
                                 </div>
                                 <div class="t-text">
                                     <p>{{$logs->action}}</p>
-                                    <span class="badge badge-success">Completed</span>
+                                    
+                                    <span class="badge badge-success">BUY</span>
                                     <p class="t-time">{{$logs->duration}}</p>
                                 </div>
                             </div>

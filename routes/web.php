@@ -24,11 +24,11 @@ Auth::routes();
 
 Route::middleware(['auth'])->group(function(){
 
-    Route::get('/','UserController@createTimeStampAlias')->name('home');
+    Route::get('/','DashboardController@createTimeStampAlias')->name('home');
 
 
     Route::prefix('dashboard')->group(function () {
-        Route::get('/','UserController@createTimeStampAlias')->name('dashboard');
+        Route::get('/','DashboardController@createTimeStampAlias')->name('dashboard');
     });
 
 
@@ -41,14 +41,15 @@ Route::middleware(['auth'])->group(function(){
 
         Route::get('/edit/{id}','UserController@edit')->name('edit-user');
 
-        Route::get('/activity','UserController@showUsersActivity')->name('showUsersActivity');
-        Route::get('/myActivity','UserController@showMyActivity')->name('showMyActivity');
-
 
         Route::post('/','UserController@store')->name('store-user');
         Route::post('/update','UserController@update')->name('update-user');
     });
     //user end
+
+    
+    Route::get('/activity','UserController@showUsersActivity')->name('showUsersActivity');
+    Route::get('/myActivity','UserController@showMyActivity')->name('showMyActivity');
 
 
     //supplier start
