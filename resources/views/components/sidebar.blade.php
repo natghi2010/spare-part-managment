@@ -13,7 +13,7 @@
             <div class="shadow-bottom"></div>
             <ul class="list-unstyled menu-categories" id="accordionExample">
                 <li class="menu ">
-                    <a href="{{ route('dashboard')}}" aria-expanded="{{'dashboard' == request()->path() ? 'true' : 'false' }}"" class="dropdown-toggle">
+                    <a href="{{ route('dashboard')}}" aria-expanded="{{Request::is('dashboard*') ? 'true' : 'false' }}" class="dropdown-toggle">
                         <div class="">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
                             <span> Dashboard</span>
@@ -22,16 +22,16 @@
                 </li>
 
                 <li class="menu">
-                    <a href="{{ route('users')}} " aria-expanded="{{Request::is('user/*') ? 'true' : 'false' }}" class="dropdown-toggle">
+                    <a href="{{ route('users')}} " aria-expanded="{{Request::is('user*') ? 'true' : 'false' }}" class="dropdown-toggle">
                         <div class="">
-                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> 
+                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                             <span> Users</span>
                         </div>
                     </a>
                 </li>
 
                 <li class="menu">
-                    <a href="{{ route('customers')}} " aria-expanded="{{'customer' == request()->path() ? 'true' : 'false' }}" class="dropdown-toggle">
+                    <a href="{{ route('customers')}} " aria-expanded="{{Request::is('customer*') ? 'true' : 'false' }}" class="dropdown-toggle">
                         <div class="">
                             <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                             <span>Customers</span>
@@ -41,7 +41,7 @@
 
 
                 <li class="menu">
-                    <a href="{{ route('suppliers')}} " aria-expanded="{{'supplier' == request()->path() ? 'true' : 'false' }}" class="dropdown-toggle">
+                    <a href="{{ route('suppliers')}} " aria-expanded="{{Request::is('supplier*') ? 'true' : 'false' }}" class="dropdown-toggle">
                         <div class="">
                             <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>
                             <span>Suppliers</span>
@@ -50,7 +50,7 @@
                 </li>
 
                 <li class="menu">
-                    <a href="{{ route('parts')}} " aria-expanded="{{'parts' == request()->path() ? 'true' : 'false' }}" class="dropdown-toggle">
+                    <a href="{{ route('parts')}} " aria-expanded="{{Request::is('parts*') ? 'true' : 'false' }}" class="dropdown-toggle">
                         <div class="">
                             <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
                             <span>Parts</span>
@@ -59,7 +59,7 @@
 
                 </li>
                 <li class="menu">
-                    <a href="{{ route('vehicles')}} " aria-expanded="{{'vehicles' == request()->path() ? 'true' : 'false' }}" class="dropdown-toggle">
+                    <a href="{{ route('vehicles')}} " aria-expanded="{{Request::is('vehicles*') ? 'true' : 'false' }}" class="dropdown-toggle">
                         <div class="">
                             <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
                             <span>Vehicle</span>
@@ -67,7 +67,7 @@
                     </a>
                 </li>
                 <li class="menu">
-                    <a href="{{ route('part-types')}} " aria-expanded="{{'part-types' == request()->path() ? 'true' : 'false' }}" class="dropdown-toggle">
+                    <a href="{{ route('part-types')}} " aria-expanded="{{Request::is('part-types*') ? 'true' : 'false' }}" class="dropdown-toggle">
                         <div class="">
                             <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
                             <span>Part Type</span>
@@ -76,7 +76,7 @@
                 </li>
 
                 <li class="menu">
-                    <a href="#submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <a href="#submenu" data-toggle="collapse" aria-expanded="{{Request::is('transaction*') ? 'true' : 'false' }}" class="dropdown-toggle">
                         <div class="">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><polygon points="12 15 17 21 7 21 12 15"></polygon></svg>
                             <span> Transaction</span>
