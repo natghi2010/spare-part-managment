@@ -1,8 +1,5 @@
 
 deployment:
     tasks:
-      - export DEPLOYPATH=/home/jasminedeveloper/sparepart.jasminedeveloper.com
+      - export DEPLOYPATH=/home/jasminedeveloper/public_html/spare-part
       - /bin/cp -R * $DEPLOYPATH
-      - /bin/cp -R ./public/* $DEPLOYPATH/
-   
-      #composer install?
