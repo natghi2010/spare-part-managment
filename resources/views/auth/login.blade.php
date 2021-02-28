@@ -5,10 +5,12 @@
 <div class="form-container outer">
     <div class="form-form">
         <div class="form-form-wrap">
-            <div class="form-container">
-                <div class="form-content">
-                <h1 class="">{{ __('Login') }}</h1>
-                <p class="">Log in to your account to continue.</p>
+            <div class="form-container" >
+                <div class="form-content" style="background-color:#c2d5ff ;">
+                <div >
+                  <h1 class="">{{ __('Login') }}</h1>
+                  <p class="">Log in to your account to continue.</p>
+                </div>
 
 
                     <form class="text-left" method="POST" action="{{ route('login') }}">
