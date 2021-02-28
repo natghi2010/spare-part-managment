@@ -17,16 +17,17 @@
 
                             <div id="email-field" class="field-wrapper input">
                                 <label for="email" >{{ __('E-Mail Address') }}</label>
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
 
 
 
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                 <svg class=" feather feather-lock" stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="currentColor" fill="round" viewBox="0 0 24 24" height="24" width="24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                @error('email')
+                                <span class="invalid-feedback d-block" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+
                             </div>
 
 
