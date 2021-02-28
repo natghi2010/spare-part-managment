@@ -54,8 +54,8 @@
                     <tr>
                         <th>Part Number</th>
                         <th>Name</th>
-                        <th>Vehicle Id</th>
-                        <th>PartType Id</th>
+                        <th>Vehicle</th>
+                        <th>PartType</th>
                         <th>Quantity</th>
                         <th></th>
                     </tr>

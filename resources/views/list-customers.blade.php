@@ -33,7 +33,7 @@
                         <td>{{$customer->tin_number}}</td>
                         <td>{{$customer->phone}}</td>
                         <td>{{$customer->email}}</td>
-                        <td>{{$customer->adress}}</td>
+                        <td>{{$customer->address}}</td>
                         <td>{{$customer->contact_person}}</td>
                         <td>{{$customer->status}}</td>
 
