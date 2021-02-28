@@ -2,11 +2,11 @@
 
 @section('content')
 
-<div class="form-container outer">
+<div class="form-container outer" style="background-color:#c2d5ff ;">
     <div class="form-form">
         <div class="form-form-wrap">
             <div class="form-container" >
-                <div class="form-content" style="background-color:#c2d5ff ;">
+                <div class="form-content" >
                 <div >
                   <h1 class="">{{ __('Login') }}</h1>
                   <p class="">Log in to your account to continue.</p>
