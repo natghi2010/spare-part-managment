@@ -47,7 +47,7 @@ Route::middleware(['auth'])->group(function(){
     });
     //user end
 
-    
+
     Route::get('/activity','UserController@showUsersActivity')->name('showUsersActivity');
     Route::get('/myActivity','UserController@showMyActivity')->name('showMyActivity');
 
@@ -55,15 +55,15 @@ Route::middleware(['auth'])->group(function(){
     //supplier start
     Route::prefix('supplier')->group(function () {
 
-        Route::get('/','supplierController@index')->name('suppliers');
+        Route::get('/','SupplierController@index')->name('suppliers');
 
-        Route::get('/create','supplierController@create')->name('create-supplier');
+        Route::get('/create','SupplierController@create')->name('create-supplier');
 
-        Route::get('/edit/{id}','supplierController@edit')->name('edit-supplier');
+        Route::get('/edit/{id}','SupplierController@edit')->name('edit-supplier');
 
 
-        Route::post('/','supplierController@store')->name('store-supplier');
-        Route::post('/update','supplierController@update')->name('update-supplier');
+        Route::post('/','SupplierController@store')->name('store-supplier');
+        Route::post('/update','SupplierController@update')->name('update-supplier');
 
 
     });
@@ -73,16 +73,16 @@ Route::middleware(['auth'])->group(function(){
     //customer start
     Route::prefix('customer')->group(function () {
 
-        Route::get('/','customerController@index')->name('customers');
+        Route::get('/','CustomerController@index')->name('customers');
 
-        Route::get('/create','customerController@create')->name('create-customer');
+        Route::get('/create','CustomerController@create')->name('create-customer');
 
-        Route::get('/edit/{id}','customerController@edit')->name('edit-customer');
-        Route::get('/{id}','customerController@show')->name('view-customer');
+        Route::get('/edit/{id}','CustomerController@edit')->name('edit-customer');
+        Route::get('/{id}','CustomerController@show')->name('view-customer');
 
 
-        Route::post('/','customerController@store')->name('store-customer');
-        Route::post('/update','customerController@update')->name('update-customer');
+        Route::post('/','CustomerController@store')->name('store-customer');
+        Route::post('/update','CustomerController@update')->name('update-customer');
 
     });
     //customer end
