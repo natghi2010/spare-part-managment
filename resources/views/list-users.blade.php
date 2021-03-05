@@ -23,7 +23,7 @@
                 </thead>
                 <tbody>
                     @foreach($users as $user)
-
+                   
                     <tr>
 
                         <td>{{$user->name}}</td>
@@ -33,10 +33,12 @@
                         <td>
                             <a href="{{route('edit-user',['id'=>$user->id])}}"> <i style="font-size: 1.5rem" class="far fa-edit"></i> </a>
 
-                            <i style="font-size: 1.5rem" class="far fa-trash-alt"></i>
+                            <a href="#" style="font-size: 1.5rem" class="far fa-trash-alt deleteUserBtn" title="{{$user->name}}" id="{{$user->id}}"></i></a>
+            
                         </td>
 
                     </tr>
+                    </del>
 
 
                     @endforeach

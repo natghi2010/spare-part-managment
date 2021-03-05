@@ -6,6 +6,7 @@ use App\User;
 use App\ActivityLog;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -53,6 +54,22 @@ class UserController extends Controller
 
         return redirect(route('edit-user',['id'=>$request->id]))->with('mssg','Successfully Update User');
     }
+
+
+    public function trash($id){
+        $user = User::find($id);
+        if($user->delete()){
+            return "Successfully Deleted User - ".Str::upper($user->name);
+        }
+    }
+
+    public function restore($id){
+        $user = User::find($id);
+        if($user->restore()){
+            return "Successfully Restored User - ".Str::upper($user->name);
+        }
+    }
+
 
     public function delete(){
 

@@ -30,3 +30,24 @@ $("#vehicle_id").change(function () {
 
 
 
+
+$(".deleteUserBtn").click(function(){
+
+    name_of_user = $(this).attr('title');
+    //user says okay
+    if(confirm("Are you sure you want to delete "+name_of_user+"'s account?")){
+        user_id = $(this).attr('id');
+      
+        $.get('/user/delete/'+user_id,function(response){
+            alert(response);
+            location.reload();
+        });
+    }
+    
+   
+
+
+})
+
+
+
