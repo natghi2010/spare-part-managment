@@ -17,6 +17,7 @@ class CreatePartType extends Migration
             $table->id();
             $table->string('name');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -27,6 +28,9 @@ class CreatePartType extends Migration
      */
     public function down()
     {
+        Schema::table('part_type', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });
         Schema::dropIfExists('part_type');
     }
 }

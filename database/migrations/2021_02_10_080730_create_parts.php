@@ -29,6 +29,7 @@ class CreateParts extends Migration
                      ->onDelete('cascade');
             $table->bigInteger('qty')->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -39,6 +40,9 @@ class CreateParts extends Migration
      */
     public function down()
     {
+        Schema::table('parts', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });
         Schema::dropIfExists('parts');
     }
 }

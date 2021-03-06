@@ -38,7 +38,8 @@
                         <td>
                             <a href="{{route('edit-part-types',['id'=>$part_type->id])}}"> <i style="font-size: 1.5rem" class="far fa-edit"></i> </a>
 
-                            <i style="font-size: 1.5rem" class="far fa-trash-alt"></i>
+                            <a href="#" style="font-size: 1.5rem" class="far fa-trash-alt deletePartTypeBtn" title="{{$part_type->name}}" id="{{$part_type->id}}"></i></a>
+
                         </td>
 
                     </tr>
