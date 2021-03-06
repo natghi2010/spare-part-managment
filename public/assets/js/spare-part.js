@@ -49,7 +49,8 @@ $(".deleteUserBtn").click(function(){
 
 })
 
-$(".deleteCustomerBtn").click(function(){
+$(".deleteCustomerBtn").click(function(ev){
+    ev.preventDefault();
 
     name_of_customer = $(this).attr('title');
     //user says okay
