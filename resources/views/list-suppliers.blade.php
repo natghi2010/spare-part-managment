@@ -39,7 +39,8 @@
                         <td>
                             <a href="{{route('edit-supplier',['id'=>$supplier->id])}}"> <i style="font-size: 1.5rem" class="far fa-edit"></i> </a>
 
-                            <i style="font-size: 1.5rem" class="far fa-trash-alt"></i>
+
+                            <a href="#" style="font-size: 1.5rem" class="far fa-trash-alt deleteSupplierBtn"title="{{$supplier->name}}" id="{{$supplier->id}}"></a>
                         </td>
 
                     </tr>

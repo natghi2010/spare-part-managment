@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Customers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CustomerController extends Controller
 {
@@ -23,7 +24,7 @@ class CustomerController extends Controller
         $customer = Customers::find($id);
         return view('create-edit-customer',['customer'=>$customer]);
     }
-    
+
     public function show($id){
         $customer = Customers::find($id);
         return view('view-customer',['customer'=>$customer]);
@@ -58,6 +59,14 @@ class CustomerController extends Controller
         $customer->save();
 
         return redirect(route('edit-customer',['id'=>$request->id]))->with('mssg','Successfully Update Customer');
+    }
+
+
+    public function trash($id){
+        $customer = Customers::find($id);
+        if($customer->delete()){
+            return "Successfully Deleted Customer - ".Str::upper($customer->name);
+        }
     }
 
     public function delete(){

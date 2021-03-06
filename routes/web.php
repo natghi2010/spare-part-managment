@@ -36,7 +36,7 @@ Route::middleware(['auth'])->group(function(){
     Route::prefix('user')->group(function () {
 
         Route::get('/','UserController@index')->name('users');
-        Route::delete('/delete/{id}','UserController@trash')->name('trash-users');
+        Route::get('/delete/{id}','UserController@trash')->name('trash-users');
 
         Route::get('/create','UserController@create')->name('create-user');
 
@@ -57,6 +57,7 @@ Route::middleware(['auth'])->group(function(){
     Route::prefix('supplier')->group(function () {
 
         Route::get('/','SupplierController@index')->name('suppliers');
+        Route::get('/delete/{id}','SupplierController@trash')->name('trash-supplier');
 
         Route::get('/create','SupplierController@create')->name('create-supplier');
 
@@ -75,6 +76,7 @@ Route::middleware(['auth'])->group(function(){
     Route::prefix('customer')->group(function () {
 
         Route::get('/','CustomerController@index')->name('customers');
+        Route::get('/delete/{id}','CustomerController@trash')->name('trash-customer');
 
         Route::get('/create','CustomerController@create')->name('create-customer');
 
