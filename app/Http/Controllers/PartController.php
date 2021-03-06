@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Parts;
+use App\Part;
 use App\PartType;
 use App\Vehicle;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PartController extends Controller
 {
     //display all parts
     public function index (){
-      $parts=Parts::with('vehicle','part_type')->get();
+      $parts=Part::with('vehicle','part_type')->get();
       return view('list-parts',['Parts'=>$parts]);
     }
     public function indexType (){
@@ -19,7 +20,7 @@ class PartController extends Controller
         return view('list-part-type',['part_types'=>$part_types]);
       }
     public function show ($id){
-        return Parts::where('id',$id)->with('vehicle','part_type')->get()->first();
+        return Part::where('id',$id)->with('vehicle','part_type')->get()->first();
     }
     public function create(){
         $vehicles = Vehicle::all(['id','model']);
@@ -35,7 +36,7 @@ class PartController extends Controller
     public function edit($id){
         $vehicles = Vehicle::all(['id','model']);
         $part_types = PartType::all(['id','name']);
-        $part = Parts::where('id',$id)->with('vehicle','part_type')->get()->first();
+        $part = Part::where('id',$id)->with('vehicle','part_type')->get()->first();
 
         return view('create-edit-part',['part'=>$part],compact('part_types','vehicles'));
     }
@@ -46,7 +47,7 @@ class PartController extends Controller
 
 
     public function store(Request $request){
-        $parts = new Parts;
+        $parts = new Part;
         $parts->part_no = $request->part_no;
         $parts->name = $request->name;
         $parts->vehicle_id = $request->vehicle_id;
@@ -67,7 +68,7 @@ class PartController extends Controller
 
 
     public function update(Request $request){
-        $parts = Parts::find($request->id);
+        $parts = Part::find($request->id);
         $parts->part_no = $request->part_no;
         $parts->name = $request->name;
         $parts->vehicle_id = $request->vehicle_id;
@@ -85,7 +86,30 @@ class PartController extends Controller
         return redirect(route('part-types',['id'=>$request->id]))->with('mssg','Successfully Update Supplier');
     }
 
-    public function delete(){
+    public function trash($id){
+        $part = Part::find($id);
+        if($part->delete()){
+            return "Successfully Deleted Part - ".Str::upper($part->name);
+        }
+    }
 
+    public function restore($id){
+        $part = Part::find($id);
+        if($part->restore()){
+            return "Successfully Restored Part - ".Str::upper($part->name);
+        }
+    }
+    public function trashType($id){
+        $part_type = PartType::find($id);
+        if($part_type->delete()){
+            return "Successfully Deleted Part Type - ".Str::upper($part_type->name);
+        }
+    }
+
+    public function restoreType($id){
+        $part_type = PartType::find($id);
+        if($part_type->restore()){
+            return "Successfully Restored Part Type - ".Str::upper($part_type->name);
+        }
     }
 }

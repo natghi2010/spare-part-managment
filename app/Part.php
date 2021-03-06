@@ -5,12 +5,14 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Vehicle;
 use App\PartType;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Parts extends Model
+class Part extends Model
 {
 
+    use SoftDeletes;
     protected $guarded = [];
-    
+
     public function vehicle(){
         return $this->belongsTo(Vehicle::class,'vehicle_id');
     }

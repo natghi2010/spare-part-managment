@@ -103,3 +103,38 @@ $(".deletevehicleBtn").click(function(){
 
 })
 
+$(".deletePartBtn").click(function(){
+
+    name_of_part = $(this).attr('title');
+    //user says okay
+    if(confirm("Are you sure you want to delete "+name_of_part+" ?")){
+        part_id = $(this).attr('id');
+
+        $.get('/parts/delete/'+part_id,function(response){
+            alert(response);
+            location.reload();
+        });
+    }
+
+
+
+
+})
+
+$(".deletePartTypeBtn").click(function(){
+
+    name_of_part_type = $(this).attr('title');
+    //user says okay
+    if(confirm("Are you sure you want to delete "+name_of_part_type+" ?")){
+        part_type_id = $(this).attr('id');
+
+        $.get('/part-types/delete/'+part_type_id,function(response){
+            alert(response);
+            location.reload();
+        });
+    }
+
+
+
+
+})

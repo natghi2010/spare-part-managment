@@ -1,6 +1,6 @@
 <?php
 
-use App\Parts;
+use App\Part;
 use App\PartType;
 use Illuminate\Database\Seeder;
 use App\User;
@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
             'name'=>'Engine'
         ]);
 
-        Parts::create([
+        Part::create([
             "name"=>"Gasket",
             "part_no"=>23842,
             "qty"=>10,

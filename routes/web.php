@@ -101,6 +101,7 @@ Route::middleware(['auth'])->group(function(){
 
         Route::post('/','PartController@store')->name('store-parts');
         Route::post('/update','PartController@update')->name('update-parts');
+        Route::get('/delete/{id}','PartController@trash')->name('trash-parts');
 
 
     });
@@ -124,6 +125,8 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/edit/{id}','PartController@editType')->name('edit-part-types');
         Route::post('/','PartController@storeType')->name('store-part-types');
         Route::post('/update','PartController@updateType')->name('update-part-types');
+        Route::get('/delete/{id}','PartController@trashType')->name('trash-part-types');
+
 
     });
 
@@ -141,6 +144,7 @@ Route::middleware(['auth'])->group(function(){
         Route::get('graphs/daily','TransactionController@loadDailyGraphData');
         Route::get('graphs/daily-sales','TransactionController@loadDailySalesGraphData');
         Route::get('graphs/sales/part-type','TransactionController@loadTopSellingPartTypeGraphData');
+
 
 
     });
