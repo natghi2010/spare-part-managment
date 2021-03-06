@@ -36,7 +36,7 @@ Route::middleware(['auth'])->group(function(){
     Route::prefix('user')->group(function () {
 
         Route::get('/','UserController@index')->name('users');
-        Route::delete('/delete/{id}','UserController@trash')->name('trash-users');
+        Route::get('/delete/{id}','UserController@trash')->name('trash-users');
 
         Route::get('/create','UserController@create')->name('create-user');
 
@@ -111,6 +111,7 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/edit/{id}','VehicleController@edit')->name('edit-vehicles');
         Route::post('/','VehicleController@store')->name('store-vehicles');
         Route::post('/update','VehicleController@update')->name('update-vehicles');
+        Route::get('/delete/{id}','VehicleController@trash')->name('trash-vehicles');
 
     });
 

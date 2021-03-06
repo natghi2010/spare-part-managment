@@ -18,6 +18,7 @@ class CreateVehicles extends Migration
             $table->string('model');
             $table->string('year')->max(4)->min(4);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -28,6 +29,10 @@ class CreateVehicles extends Migration
      */
     public function down()
     {
+        Schema::table('vehicles', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });
         Schema::dropIfExists('vehicles');
+
     }
 }

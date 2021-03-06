@@ -36,9 +36,13 @@
 
 
                         <td>
-                            <a href="{{route('edit-vehicles',['id'=>$vehicle->id])}}"> <i style="font-size: 1.5rem" class="far fa-edit"></i> </a>
+                            <a href="{{route('edit-vehicles',['id'=>$vehicle->id])}}">
+                                <i style="font-size: 1.5rem" class="far fa-edit"></i> </a>
 
-                            <i style="font-size: 1.5rem" class="far fa-trash-alt"></i>
+
+                            <a href="#" style="font-size: 1.5rem" class="far fa-trash-alt deletevehicleBtn" title="{{$vehicle->model}}" id="{{$vehicle->id}}"></></a>
+
+
                         </td>
 
                     </tr>
