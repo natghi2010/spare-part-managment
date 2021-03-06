@@ -49,6 +49,41 @@ $(".deleteUserBtn").click(function(){
 
 })
 
+$(".deleteCustomerBtn").click(function(){
+
+    name_of_customer = $(this).attr('title');
+    //user says okay
+    if(confirm("Are you sure you want to delete "+name_of_customer+"'s account?")){
+        customer_id = $(this).attr('id');
+
+        $.get('/customer/delete/'+customer_id,function(response){
+            alert(response);
+            location.reload();
+        });
+    }
+
+
+
+
+})
+$(".deleteSupplierBtn").click(function(){
+
+    name_of_supplier = $(this).attr('title');
+    //user says okay
+    if(confirm("Are you sure you want to delete "+name_of_supplier+"'s account?")){
+        supplier_id = $(this).attr('id');
+
+        $.get('/supplier/delete/'+supplier_id,function(response){
+            alert(response);
+            location.reload();
+        });
+    }
+
+
+
+
+})
+
 $(".deletevehicleBtn").click(function(){
 
     name_of_vehicle = $(this).attr('title');

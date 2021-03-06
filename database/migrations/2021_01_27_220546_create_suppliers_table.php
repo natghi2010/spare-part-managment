@@ -22,6 +22,7 @@ class CreateSuppliersTable extends Migration
             $table->string('email')->unique();
             $table->string('status')->default('Active');
             $table->timestamps();
+            $table->softDeletes();
 
         });
     }
@@ -33,6 +34,10 @@ class CreateSuppliersTable extends Migration
      */
     public function down()
     {
+        Schema::table('suppliers', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });
+
         Schema::dropIfExists('suppliers');
     }
 }

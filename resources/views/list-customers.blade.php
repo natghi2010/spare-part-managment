@@ -44,7 +44,7 @@
                             <a href="{{route('view-customer',['id'=>$customer->id])}}"> <i style="font-size: 1.5rem" class="far fa-eye"></i> </a>
                             <a href="{{route('edit-customer',['id'=>$customer->id])}}"> <i style="font-size: 1.5rem" class="far fa-edit"></i> </a>
 
-                            <i style="font-size: 1.5rem" class="far fa-trash-alt"></i>
+                            <a href="#" style="font-size: 1.5rem" class="far fa-trash-alt deleteCustomerBtn"title="{{$customer->name}}" id="{{$customer->id}}"></a>
                         </td>
 
                     </tr>

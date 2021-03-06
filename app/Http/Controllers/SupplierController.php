@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Suppliers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class SupplierController extends Controller
 {
@@ -50,6 +51,13 @@ class SupplierController extends Controller
         $supplier->save();
 
         return redirect(route('edit-supplier',['id'=>$request->id]))->with('mssg','Successfully Update Supplier');
+    }
+
+    public function trash($id){
+        $supplier = Suppliers::find($id);
+        if($supplier->delete()){
+            return "Successfully Deleted Supplier - ".Str::upper($supplier->name);
+        }
     }
 
     public function delete(){

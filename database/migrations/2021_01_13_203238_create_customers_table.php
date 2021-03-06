@@ -23,6 +23,7 @@ class CreateCustomersTable extends Migration
             $table->string('contact_person')->max(10)->unique()->nullable();
             $table->string('status')->default('Active');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -33,6 +34,10 @@ class CreateCustomersTable extends Migration
      */
     public function down()
     {
+        Schema::table('customers', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });
+
         Schema::dropIfExists('customers');
     }
 }
