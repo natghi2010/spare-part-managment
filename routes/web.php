@@ -113,6 +113,7 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/edit/{id}','VehicleController@edit')->name('edit-vehicles');
         Route::post('/','VehicleController@store')->name('store-vehicles');
         Route::post('/update','VehicleController@update')->name('update-vehicles');
+        Route::get('/delete/{id}','VehicleController@trash')->name('trash-vehicles');
 
     });
 

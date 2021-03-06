@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Vehicle;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class VehicleController extends Controller
 {
@@ -50,7 +51,17 @@ class VehicleController extends Controller
         return redirect(route('edit-vehicles',['id'=>$request->id]))->with('mssg','Successfully Update Supplier');
     }
 
-    public function delete(){
+    public function trash($id){
+        $vehicle = Vehicle::find($id);
+        if($vehicle->delete()){
+            return "Successfully Deleted Vehicle - ".Str::upper($vehicle->model);
+        }
+    }
 
+    public function restore($id){
+        $vehicle = Vehicle::find($id);
+        if($vehicle->restore()){
+            return "Successfully Restored Vehicle - ".Str::upper($vehicle->model);
+        }
     }
 }

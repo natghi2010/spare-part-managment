@@ -84,5 +84,21 @@ $(".deleteSupplierBtn").click(function(){
 
 })
 
+$(".deletevehicleBtn").click(function(){
 
+    name_of_vehicle = $(this).attr('title');
+    //user says okay
+    if(confirm("Are you sure you want to delete "+name_of_vehicle+"?")){
+        vehicle_id = $(this).attr('id');
+
+        $.get('/vehicles/delete/'+vehicle_id,function(response){
+            alert(response);
+            location.reload();
+        });
+    }
+
+
+
+
+})
 
