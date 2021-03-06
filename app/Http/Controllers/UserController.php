@@ -7,6 +7,7 @@ use App\ActivityLog;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -32,7 +33,7 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->type = $request->type;
-        $user->password = bcrypt('admin');
+        $user->password = Hash::make('admin');
         $user->save();
 
         //Logging Activity START
@@ -97,6 +98,33 @@ class UserController extends Controller
         $sorted = $activity_logs->sortBy('duration')->skip(0)->take(6);
         return view('dashboard',['activity_logs'=>$sorted]);
 
+    }
+
+
+    public function profile(){
+        return view('profile');
+    }
+
+    public function changePassword(Request $request){
+
+        $user = User::find(auth()->user()->id);
+
+        if(Hash::check($request->current_password, $user->password)){
+           if($request->new_password == $request->confirm_password){
+
+
+                $user->update(['password'=>hash::make($request->new_password)]);
+
+                return redirect(route('profile'))->with('mssg','Password successfully Changed');
+                
+           }else{
+            return redirect(route('profile'))->with('err','Your new password must match your confirm password');
+           }
+        }else{
+            return redirect(route('profile'))->with('err','Your current password does not match our records');
+        }
+
+    
     }
 
 }
