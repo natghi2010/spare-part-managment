@@ -39,6 +39,17 @@ class TransactionController extends Controller
         return view('buy-parts', compact('suppliers', 'parts', 'vehicles'));
     }
 
+    public function edit($transaction_id){
+        $transaction = Transaction::find($transaction_id);
+        $vehicles = Vehicle::all();
+        $part_types = PartType::all();
+        $parts = Part::all();
+        $suppliers = Suppliers::all();
+        $customers = Customers::all();
+
+        return view($transaction->type.'-parts',compact('transaction','vehicles','part_types','parts','suppliers','customers'));
+    }
+
 
     public function loadSellForm()
     {

@@ -140,6 +140,8 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/buy','TransactionController@loadBuyForm')->name('buy-parts');
         Route::get('/sell','TransactionController@loadSellForm')->name('sell-parts');
 
+        Route::get('/edit/{transaction_id}','TransactionController@edit')->name('edit-transaction');
+
         Route::post('/buy','TransactionController@buyPart')->name('buy-parts-process');
         Route::post('/sell','TransactionController@sellPart')->name('sell-parts-process');
 
