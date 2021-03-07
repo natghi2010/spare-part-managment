@@ -34,7 +34,7 @@
                     <input type="text" name="tin_number" class="form-control" value="{{$customer->tin_number ?? ''}}">
                 </div>
                 <div class="form-group mb-4">
-                    <label class="control-label">Phone </label>
+                    <label class="control-label">Phone Number </label>
                     <input type="text" name="phone" class="form-control" value="{{$customer->phone ?? ''}}">
                 </div>
 
