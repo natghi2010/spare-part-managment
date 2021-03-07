@@ -2,30 +2,48 @@
 
 namespace App\Http\Controllers;
 
-use App\Parts;
+use App\Part;
 use App\PartType;
 use App\Suppliers;
 use App\Transaction;
 use App\Vehicle;
 use App\ActivityLog;
 use App\Customers;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 
+use function PHPSTORM_META\type;
+
 class TransactionController extends Controller
 {
+
+    public function index(){
+        $customers = Customers::all();
+        $suppliers = Suppliers::all();
+        $parts = Part::all();
+        $vehicles = Vehicle::all();
+        $transactions = Transaction::all();
+        $part_type= PartType::all();
+        $users = User::all();
+
+        return view('list-transaction',['transactions'=>$transactions],
+        compact('customers','suppliers', 'parts', 'vehicles','part_type','users'));
+    }
+
     public function loadBuyForm()
     {
         $suppliers = Suppliers::all();
-        $parts = Parts::all();
+        $parts = Part::all();
         $vehicles = Vehicle::all();
         return view('buy-parts', compact('suppliers', 'parts', 'vehicles'));
     }
 
+
     public function loadSellForm()
     {
         $customers = Customers::all();
-        $parts = Parts::all();
+        $parts = Part::all();
         $vehicles = Vehicle::all();
         return view('sell-parts',compact('customers', 'parts', 'vehicles'));
     }
@@ -39,7 +57,7 @@ class TransactionController extends Controller
             return view('components.dropDown', ['componentType' => $componentType, 'options' => $options, 'label' => $label]);
         } else {
             $label = 'Part';
-            $options =  Parts::where('part_type_id', $part_type_id)->get();
+            $options =  Part::where('part_type_id', $part_type_id)->get();
             return view('components.dropDown', ['componentType' => $componentType, 'options' => $options, 'label' => $label]);
         }
     }
@@ -80,8 +98,8 @@ class TransactionController extends Controller
     {
 
 
-        if(Parts::find($request->part_id)->qty < $request->qty){
-            return redirect(route('sell-parts'))->with('mssg','The quantity you inserted ('.$request->qty.') is more than the stock ('.Parts::find($request->part_id)->qty.').');
+        if(Part::find($request->part_id)->qty < $request->qty){
+            return redirect(route('sell-parts'))->with('mssg','The quantity you inserted ('.$request->qty.') is more than the stock ('.Part::find($request->part_id)->qty.').');
         }
 
 

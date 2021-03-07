@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Parts;
+use App\Part;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -15,6 +15,6 @@ class Vehicle extends Model
 
     protected $guarded = [];
     public function parts(){
-        return $this->hasMany(Parts::class,'vehicle_id');
+        return $this->hasMany(Part::class,'vehicle_id');
     }
 }

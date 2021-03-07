@@ -86,6 +86,11 @@
                         </div>
                     </a>
                     <ul class="collapse submenu list-unstyled" id="submenu" data-parent="#accordionExample">
+
+
+                        <li>
+                            <a href="{{route('transactions')}}">Transactions </a>
+                        </li>
                         <li>
                             <a href="{{route('buy-parts')}}"> Buy </a>
                         </li>

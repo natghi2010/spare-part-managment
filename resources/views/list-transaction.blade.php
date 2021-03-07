@@ -5,7 +5,7 @@
 @section('content')
 <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
     <div class="widget-content widget-content-area br-6">
-        <a href="{{route('create-customer')}}" class="btn btn-info">Add Customer</a> 
+        <a href="{{route('create-customer')}}" class="btn btn-info">Add Customer</a>
         <div class="table-responsive mb-4 mt-4">
             <p class="text-success">{{session('mssg')}}</p>
 
@@ -30,18 +30,19 @@
 
                     <tr>
 
-                        <td>TRT219212</td>
-                        <td>John Smith</td>
-                        <td> - </td>
-                        <td> Engine - Gasket</td>
-                        <td> Vitz 2004</td>
-                        <td> Price</td>
-                        <td> Qty </td>
-                        <td> Demo </td>
-                     
+                        <td>{{$transaction->transaction_id}}</td>
+                        <td>{{$transaction->customer_id}}</td>
+                        <td>{{$transaction->supplier_id}}</td>
+                        <td> {{$transaction->part_type->name}} - {{$transaction->part->name}}</td>
+                        <td> {{$transaction->vehicles->model}} - {{$transaction->vehicles->year}}</td>
+                        <td> {{$transaction->price}}</td>
+                        <td> {{$transaction->qty}} </td>
+                        <td> {{$transaction->users->name}} </td>
+
                         <td>
                             {{-- <a href="{{route('view-customer',['id'=>$customer->id])}}"> <i style="font-size: 1.5rem" class="far fa-eye"></i> </a> --}}
-                            <a href="{{route('edit-customer',['id'=>$transaction->id])}}"> <i style="font-size: 1.5rem" class="far fa-edit"></i> </a>
+                            {{-- <a href="{{route('edit-customer',['id'=>$transaction->id])}}">  --}}
+                                <i style="font-size: 1.5rem" class="far fa-edit"></i> </a>
 
                         </td>
 
@@ -52,13 +53,14 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                    <th>Name</th>
-                        <th>Tin Number</th>
-                        <th>Phone</th>
-                        <th>Email</th>
-                        <th>Adress</th>
-                        <th>Contact-person</th>
-                        <th>Status</th>
+                        <th>Transaction Ref.</th>
+                        <th>Customer</th>
+                        <th>Supplier</th>
+                        <th>Part</th>
+                        <th>Vehicle</th>
+                        <th>Price</th>
+                        <th>Qty</th>
+                        <th>User</th>
                         <th></th>
                     </tr>
                 </tfoot>

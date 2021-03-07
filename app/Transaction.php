@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\User;
 use App\PartType;
-use App\Parts;
+use App\Part;
 use App\Suppliers;
 use App\Customers;
 use App\Vehicle;
@@ -26,9 +26,12 @@ class Transaction extends Model
         return $this->belongsTo(User::class,'user_id');
     }
     public function part_type(){
-        return $this->belongsTo(PartType::class,'user_id');
+        return $this->belongsTo(PartType::class,'part_type_Id');
     }
     public function part(){
-        return $this->belongsTo(Parts::class,'user_id');
+        return $this->belongsTo(Part::class,'part_id');
+    }
+    public function vehicle(){
+        return $this->belongsTo(Vehicle::class,'vehicle_id');
     }
 }
