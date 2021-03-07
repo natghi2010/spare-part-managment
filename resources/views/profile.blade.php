@@ -62,25 +62,26 @@
             <form class="form-vertical" action="{{route('change-password')}}" method="POST">
 
                 @csrf
-        <div class="row">
+        <div class="">
 
-                <div class="form-group mb-4 col-md-8 col-xs-12">
+                <div class="form-group mb-4">
                     <label class="control-label">Current Password</label>
-                    <input type="text" name="current_password">
+                    <input type="text" name="current_password" class="form-control">
                 </div>
-                <div class="form-group mb-4 col-md-8 col-xs-12">
+
+                <div class="form-group mb-4">
                     <label class="control-label">New Password</label>
-                    <input type="text" name="new_password">
+                    <input type="text" name="new_password" class="form-control">
                 </div>
-                <div class="form-group mb-4 col-md-8 col-xs-12">
+                <div class="form-group mb-4">
                     <label class="control-label">Confirm Password</label>
-                    <input type="text" name="confirm_password">
+                    <input type="text" name="confirm_password" class="form-control">
                 </div>
 
         </div>
 
     <center>
-        <button class="btn btn-success" type="submit">Change Password</button>
+        <button class="btn btn-primary mt-3" type="submit">Change Password</button>
     </center>
 
             </form>
