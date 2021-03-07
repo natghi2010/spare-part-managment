@@ -28,6 +28,15 @@ class DatabaseSeeder extends Seeder
                 'type' => 'Admin',
             ]);
         }
+        if (!User::where('email', 'natghi2010@gmail.com')->get()->count()) {
+            //creates fake user
+            DB::table('users')->insert([
+                'name' => 'Natnael',
+                'email' => 'natghi2010@gmail.com',
+                'password' => Hash::make('password'),
+                'type' => 'Admin',
+            ]);
+        }
 
 
         //create vehicle
