@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12 col-12 bg-danger">
                     <h4>Sell Parts</h4>
-                  
+
                 </div>
             </div>
         </div>
@@ -29,7 +29,7 @@
                         <option selected disabled value="">--Select Customer--</option>
 
                         @foreach($customers as $customer)
-                        <option value="{{$customer->id}}" >{{$customer->name}}</option>
+                        <option {{isset($transaction->customer_id) && $transaction->customer_id == $customer->id ? 'selected' : ''}}  value="{{$customer->id}}" >{{$customer->name}}</option>
                         @endforeach
 
                     </select>
@@ -47,15 +47,45 @@
                         <option selected disabled value="">--Select Vehicle--</option>
 
                         @foreach($vehicles as $vehicle)
-                        <option value="{{$vehicle->id}}" >{{$vehicle->model}}</option>
+                        <option {{isset($transaction->vehicle_id) && $transaction->vehicle_id == $vehicle->id ? 'selected' : ''}} value="{{$vehicle->id}}" >{{$vehicle->model}}</option>
                         @endforeach
 
                     </select>
 
                 </div>
 
-                <div class="form-group mb-4 col-md-4 col-xs-12" id="part_type_container"></div>
-                <div class="form-group mb-4 col-md-4 col-xs-12" id="part_container"> </div>
+                <div class="form-group mb-4 col-md-4 col-xs-12" id="part_type_container">
+
+                    @if(isset($transaction))
+
+                        <label class="control-label">Part Type</label>
+                        <select  class="custom-select mb-4" id="part_type_id" name="part_type_id">
+
+                        <option selected disabled value="">--Select Part Type--</option>
+
+                        @foreach($part_types as $part_type)
+                            <option {{$part_type->id == $transaction->part_type_Id ? 'selected' :''}} value="{{$part_type->id}}">{{$part_type->name}}</option>
+                        @endforeach
+
+                        </select>
+
+                        @endif
+                </div>
+                <div class="form-group mb-4 col-md-4 col-xs-12" id="part_container">
+
+                    @if(isset($transaction))
+                    <label class="control-label">Part</label>
+                    <select  class="custom-select mb-4" id="part_id" name="part_id">
+
+                    <option selected disabled value="">--Select Part--</option>
+
+                    @foreach($parts as $part)
+                        <option  {{$part->id == $transaction->part_id ? 'selected' : ''}} value="{{$part->id}}">{{$part->name}}</option>
+                    @endforeach
+
+                    </select>
+                @endif
+                </div>
 
 
         </div>
@@ -64,17 +94,21 @@
 
             <div class="form-group mb-4 col-md-5 col-xs-12">
                 <label class="control-label">Qty</label>
-                <input type="number" name="qty" id="qty" class="form-control" min="{{1}}"/>
+                <input type="number" name="qty" id="qty" value="{{$transaction->qty ?? ''}}" class="form-control" min="{{1}}"/>
+
+
 
             </div>
             <div class="form-group mb-4 col-md-5 col-xs-12">
                 <label class="control-label">Price</label>
-                <input type="text" name="price" id="price" value="" class="form-control" />
+                <input type="text" name="price" id="price" value="{{$transaction->price ?? ''}}" class="form-control" />
+
             </div>
 
             <div class="form-group mb-4 col-md-5 col-xs-12">
                 <label class="control-label">Date</label>
-                <input type="date" name="date" id="date" class="form-control"/>
+                <input type="date" name="date" id="date" value="{{$transaction->date ?? ''}}" class="form-control"/>
+
             </div>
 
 

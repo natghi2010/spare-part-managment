@@ -57,7 +57,7 @@
                 </div>
 
                 <div class="form-group mb-4 col-md-4 col-xs-12" id="part_type_container">
-          @if(isset($transaction))   
+          @if(isset($transaction))
 
                         <label class="control-label">Part Type</label>
                         <select  class="custom-select mb-4" id="part_type_id" name="part_type_id">
@@ -77,7 +77,7 @@
 
                 <div class="form-group mb-4 col-md-4 col-xs-12" id="part_container">
 
-                    @if(isset($transaction))   
+                    @if(isset($transaction))
                         <label class="control-label">Part</label>
                         <select  class="custom-select mb-4" id="part_id" name="part_id">
 
@@ -89,7 +89,7 @@
 
                         </select>
                     @endif
-                    
+
                 </div>
 
 
