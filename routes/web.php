@@ -160,8 +160,6 @@ Route::middleware(['auth'])->group(function(){
 
 
 
-
-
     Route::get('/logout',function(){
         auth()->logout();
         return redirect('/login');
