@@ -42,7 +42,7 @@
                 <div class="form-group mb-4">
                     <label class="control-label">Type</label>
                     <select class="custom-select mb-4" name="type" value="{{$user->type ?? ''}}">
-                        <option hidden selected>Type</option>
+                        <option required selected disabled>Type</option>
                         <option value="Admin" @if (isset($user->id))
                             {{($user->type === 'Admin') ? 'Selected' : ''}}
                             @endif>Admin</option>
@@ -71,6 +71,7 @@
                </ul>
             </div>
            @endif
+
 
 
         </div>
