@@ -11,6 +11,7 @@
                 </div>
             </div>
             <div class="shadow-bottom"></div>
+
             <ul class="list-unstyled menu-categories" id="accordionExample">
                 <li class="menu ">
                     <a href="{{ route('dashboard')}}" aria-expanded="{{Request::is('dashboard*') ? 'true' : 'false' }}" class="dropdown-toggle">

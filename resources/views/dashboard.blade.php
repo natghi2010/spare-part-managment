@@ -4,6 +4,7 @@
 
 @section('content')
 
+<p class="text-danger">{{session('mssg')}}</p>
 
 <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
     <div class="widget widget-chart-one">
