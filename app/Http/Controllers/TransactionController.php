@@ -89,7 +89,7 @@ class TransactionController extends Controller
         $transaction->user_id = auth()->user()->id;
 
         //from form
-        $transaction->supplier_id = $request->supplier_id;
+        $transaction->supplier_id = $request->supplier;
         $transaction->vehicle_id = $request->vehicle_id;
         $transaction->part_type_id = $request->part_type_id;
         $transaction->part_id = $request->part_id;
@@ -138,7 +138,7 @@ class TransactionController extends Controller
         $transaction->user_id = auth()->user()->id;
 
         //from form
-        $transaction->customer_id = $request->customer_id;
+        $transaction->customer_id = $request->customer;
         $transaction->vehicle_id = $request->vehicle_id;
         $transaction->part_type_id = $request->part_type_id;
         $transaction->part_id = $request->part_id;
@@ -293,12 +293,12 @@ class TransactionController extends Controller
         $transaction= Transaction::find($request->id);
 
         if(isset($transaction->customer_id)){
-            $transaction->customer_id = $request->customer_id;
+            $transaction->customer_id = $request->customer;
             $transaction->type = 'Sell';
         }
         if(isset($transaction->supplier_id))
         {
-            $transaction->supplier_id = $request->supplier_id;
+            $transaction->supplier_id = $request->supplier;
             $transaction->type = 'Buy';
         }
         $transaction->vehicle_id = $request->vehicle_id;
