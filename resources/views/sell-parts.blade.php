@@ -29,7 +29,7 @@
 
                 <div class="form-group mb-4 col-md-8 col-xs-12">
                     <label class="control-label">Customer</label>
-                    <select class="custom-select mb-4" name="customer_id" >
+                    <select class="custom-select mb-4" name="customer" >
 
                         <option selected disabled value="">--Select Customer--</option>
 

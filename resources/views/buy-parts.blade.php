@@ -30,7 +30,7 @@
 
                 <div class="form-group mb-4 col-md-8 col-xs-12">
                     <label class="control-label">Supplier</label>
-                    <select class="custom-select mb-4" name="supplier_id" >
+                    <select class="custom-select mb-4" name="supplier" >
 
                         <option selected disabled value="">--Select Supplier--</option>
 
