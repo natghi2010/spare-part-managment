@@ -145,6 +145,9 @@ Route::middleware(['auth'])->group(function(){
         Route::post('/buy','TransactionController@buyPart')->name('buy-parts-process');
         Route::post('/sell','TransactionController@sellPart')->name('sell-parts-process');
 
+        Route::post('/update','TransactionController@update')->name('update-parts-process');
+
+
         Route::get('forms/{componentType}','TransactionController@loadFormComponent');
         Route::get('forms/{componentType}/{part_type_id}','TransactionController@loadFormComponent');
 

@@ -10,19 +10,23 @@
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12 col-12 bg-success">
                     <h4>Buy Parts</h4>
-                    <p class="text-success">{{session('mssg')}}</p>
+
                 </div>
             </div>
         </div>
 
 
         <div class="widget-content widget-content-area">
-            <form class="form-vertical" action="{{route(isset($transaction) ? 'buy-parts-process':'buy-parts-process')}}" method="POST">
+            <p class="text-success">{{session('mssg')}}</p>
+            <form class="form-vertical" action="{{route(isset($transaction->id) ? 'update-parts-process':'buy-parts-process')}}" method="POST">
 
                 @csrf
         <div class="row">
 
-            <input type="text" value="{{$transaction->id ?? ''}}" hidden readonly/>
+
+            @if(isset($transaction->id))
+            <input name="id" type="text" value="{{$transaction->id}}" readonly hidden>
+        @endif
 
                 <div class="form-group mb-4 col-md-8 col-xs-12">
                     <label class="control-label">Supplier</label>
@@ -57,7 +61,7 @@
                 </div>
 
                 <div class="form-group mb-4 col-md-4 col-xs-12" id="part_type_container">
-          @if(isset($transaction))
+          @if(isset($transaction->id))
 
                         <label class="control-label">Part Type</label>
                         <select  class="custom-select mb-4" id="part_type_id" name="part_type_id">
@@ -77,7 +81,7 @@
 
                 <div class="form-group mb-4 col-md-4 col-xs-12" id="part_container">
 
-                    @if(isset($transaction))
+                    @if(isset($transaction->id))
                         <label class="control-label">Part</label>
                         <select  class="custom-select mb-4" id="part_id" name="part_id">
 
@@ -116,7 +120,7 @@
     </div>
 
     <center>
-        <button class="btn btn-success" id="processTransaction" {{isset($transaction) ? '' : 'disabled'}} type="submit">Process Buy Transcation</button>
+        <button class="btn btn-success" id="processTransaction" {{isset($transaction->id) ? '' : 'disabled'}} type="submit">Process Buy Transcation</button>
     </center>
 
             </form>

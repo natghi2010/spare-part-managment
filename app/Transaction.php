@@ -48,9 +48,9 @@ class Transaction extends Model
         return $this->belongsTo(Vehicle::class,'vehicle_id');
     }
     public function supplier(){
-        return $this->belongsTo(Customers::class,'supplier_id');
+        return $this->belongsTo(Suppliers::class,'supplier_id');
     }
     public function customer(){
-        return $this->belongsTo(Suppliers::class,'customer_id');
+        return $this->belongsTo(Customers::class,'customer_id');
     }
 }

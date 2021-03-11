@@ -100,6 +100,7 @@ class TransactionController extends Controller
 
 
 
+
         ActivityLog::create(['user_id'=>auth()->user()->id,'action'=>'Bought '.$transaction->part->name]);
 
         return redirect(route('dashboard'))->with('mssg','Transaction Successful');
@@ -272,6 +273,28 @@ class TransactionController extends Controller
         );
 
 
+    }
+    public function update(Request $request){
+        $transaction= Transaction::find($request->id);
+
+        if(isset($transaction->customer_id)){
+            $transaction->customer_id = $request->customer_id;
+            $transaction->type = 'Sell';
+        }
+        if(isset($transaction->supplier_id))
+        {
+            $transaction->supplier_id = $request->supplier_id;
+            $transaction->type = 'Buy';
+        }
+        $transaction->vehicle_id = $request->vehicle_id;
+        $transaction->part_type_id = $request->part_type_id;
+        $transaction->part_id = $request->part_id;
+        $transaction->qty = $request->qty;
+        $transaction->price = $request->price;
+        $transaction->date = $request->date;
+        $transaction->save();
+
+        return redirect(route('edit-transaction',['transaction_id'=>$request->id]))->with('mssg','Successfully Updated Transaction');
     }
 
 }

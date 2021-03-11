@@ -9,7 +9,7 @@
         <div class="widget-header">
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12 col-12 bg-danger">
-                    <h4>Sell Parts</h4>
+                    <h4>Sale Parts</h4>
 
                 </div>
             </div>
@@ -17,10 +17,15 @@
 
 
         <div class="widget-content widget-content-area">
-            <form class="form-vertical" action="{{route('sell-parts-process')}}" method="POST">
+            <p class="text-danger">{{session('mssg')}}</p>
+            <form class="form-vertical" action="{{route(isset($transaction->id) ? 'update-parts-process':'sell-parts-process')}}" method="POST">
 
                 @csrf
         <div class="row">
+
+            @if(isset($transaction->id))
+                <input name="id" type="text" value="{{$transaction->id}}" readonly hidden>
+            @endif
 
                 <div class="form-group mb-4 col-md-8 col-xs-12">
                     <label class="control-label">Customer</label>
@@ -115,8 +120,8 @@
     </div>
 
     <center>
-        <p class="text-danger">{{session('mssg')}}</p>
-        <button class="btn btn-danger" id="processTransaction" disabled type="submit">Process Sell Transcation</button>
+
+        <button class="btn btn-success" id="processTransaction" {{isset($transaction->id) ? '' : 'disabled'}} type="submit">Process Sell Transcation</button>
     </center>
 
             </form>

@@ -5,7 +5,7 @@
 @section('content')
 <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
     <div class="widget-content widget-content-area br-6">
-        <a href="{{route('create-customer')}}" class="btn btn-info">Add Customer</a>
+        {{-- <a href="{{route('create-customer')}}" class="btn btn-info">Add Customer</a> --}}
         <div class="table-responsive mb-4 mt-4">
             <p class="text-success">{{session('mssg')}}</p>
 
@@ -45,7 +45,7 @@
 
                         <td>
                             {{-- <a href="{{route('view-customer',['id'=>$customer->id])}}"> <i style="font-size: 1.5rem" class="far fa-eye"></i> </a> --}}
-                             <a href="{{route('edit-transaction',['transaction_id'=>$transaction->id])}}"> 
+                             <a href="{{route('edit-transaction',['transaction_id'=>$transaction->id])}}">
                                 <i style="font-size: 1.5rem" class="far fa-edit"></i> </a>
 
                         </td>
