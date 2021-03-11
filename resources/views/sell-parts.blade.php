@@ -121,7 +121,7 @@
 
     <center>
 
-        <button class="btn btn-success" id="processTransaction" {{isset($transaction->id) ? '' : 'disabled'}} type="submit">Process Sell Transcation</button>
+        <button class="btn btn-danger" id="processTransaction" {{isset($transaction->id) ? '' : 'disabled'}} type="submit">Process Sale Transcation</button>
     </center>
 
             </form>
