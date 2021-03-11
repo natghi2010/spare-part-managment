@@ -94,7 +94,7 @@ Route::middleware(['auth'])->group(function(){
     });
     //customer end
 
-    Route::prefix('parts')->group(function () {
+    Route::middleware(['adminOnly'])->prefix('parts')->group(function () {
 
         Route::get('/','PartController@index')->name('parts');
         //Route::get('/{id}','PartController@show')->name('parts');
@@ -107,8 +107,8 @@ Route::middleware(['auth'])->group(function(){
         Route::post('/update','PartController@update')->name('update-parts');
         Route::get('/delete/{id}','PartController@trash')->name('trash-parts');
 
-
     });
+
 
     Route::prefix('vehicles')->group(function () {
 
@@ -155,9 +155,9 @@ Route::middleware(['auth'])->group(function(){
         Route::get('graphs/daily-sales','TransactionController@loadDailySalesGraphData');
         Route::get('graphs/sales/part-type','TransactionController@loadTopSellingPartTypeGraphData');
 
-
-
     });
+
+
 
     Route::get('/report','ReportController@generateReport')->name('report');
 
