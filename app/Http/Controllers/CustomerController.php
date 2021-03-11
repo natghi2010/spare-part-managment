@@ -32,6 +32,14 @@ class CustomerController extends Controller
 
 
     public function store(Request $request){
+
+        $this->validate($request,[
+            'name'=>'required|max:50',
+            'tin_number'=>'min:10',
+            'status'=>'required'
+         ]);
+
+
         $customer = new Customers;
         $customer->name = $request->name;
         $customer->email = $request->email;

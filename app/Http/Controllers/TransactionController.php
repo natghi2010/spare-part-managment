@@ -76,6 +76,14 @@ class TransactionController extends Controller
 
     public function buyPart(Request $request)
     {
+
+        $this->validate($request,[
+            'supplier'=>'required',
+            'qty'=>'min:1',
+            'price'=>'min:1',
+            'date'=>'required'
+         ]);
+
         $transaction  =  new Transaction;
         $transaction->type = 'Buy';
         $transaction->user_id = auth()->user()->id;
@@ -113,6 +121,13 @@ class TransactionController extends Controller
         if(Part::find($request->part_id)->qty < $request->qty){
             return redirect(route('sell-parts'))->with('mssg','The quantity you inserted ('.$request->qty.') is more than the stock ('.Part::find($request->part_id)->qty.').');
         }
+
+        $this->validate($request,[
+            'customer'=>'required',
+            'qty'=>'min:1',
+            'price'=>'min:1',
+            'date'=>'required'
+         ]);
 
 
 

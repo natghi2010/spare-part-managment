@@ -27,6 +27,13 @@ class SupplierController extends Controller
 
 
     public function store(Request $request){
+
+        $this->validate($request,[
+            'name'=>'required|max:50',
+            'tin_number'=>'min:10',
+            'status'=>'required'
+         ]);
+
         $supplier = new Suppliers;
         $supplier->name = $request->name;
         $supplier->country_of_origin = $request->country_of_origin;

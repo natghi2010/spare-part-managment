@@ -79,9 +79,7 @@ class UserController extends Controller
     }
 
 
-    public function delete(){
 
-    }
 
     public function showUsersActivity(){
         $activity_logs = ActivityLog::with('user')->get();
@@ -123,7 +121,7 @@ class UserController extends Controller
                 $user->update(['password'=>hash::make($request->new_password)]);
 
                 return redirect(route('profile'))->with('mssg','Password successfully Changed');
-                
+
            }else{
             return redirect(route('profile'))->with('err','Your new password must match your confirm password');
            }
@@ -131,7 +129,7 @@ class UserController extends Controller
             return redirect(route('profile'))->with('err','Your current password does not match our records');
         }
 
-    
+
     }
 
 }
