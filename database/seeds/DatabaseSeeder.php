@@ -70,7 +70,8 @@ class DatabaseSeeder extends Seeder
                 'email' => $faker->email,
                 'phone' => '+251911' . $faker->numberBetween(100000, 900000),
                 'address' => 'Bole',
-                'tin_number' => $faker->numberBetween(1000000000, 9000000000)
+                'tin_number' => $faker->numberBetween(1000000000, 9000000000),
+                'status'=>'Active'
             ]);
 
             $faker = Faker::create();
@@ -80,7 +81,8 @@ class DatabaseSeeder extends Seeder
                     'email' => $faker->email,
                     'phone' => '+251911' . $faker->numberBetween(100000, 900000),
                     'country_of_origin' => 'China',
-                    'tin_number' => $faker->numberBetween(1000000000, 9000000000)
+                    'tin_number' => $faker->numberBetween(1000000000, 9000000000),
+                    'status'=>'Active'
                 ]);
             }
         }
