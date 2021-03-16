@@ -5,6 +5,7 @@ use App\PartType;
 use App\Suppliers;
 use App\Customers;
 use App\Transaction;
+use App\ActivityLog;
 use Illuminate\Database\Seeder;
 use App\User;
 use Faker\Factory as Faker;
@@ -50,6 +51,10 @@ class DatabaseSeeder extends Seeder
         Vehicle::create([
             "model" => "isuzu",
             "year" => 2000
+        ]);
+        ActivityLog::create([
+            "action" => "sold gasket",
+            "user_id"=>User::first()->id,
         ]);
 
         PartType::create([
