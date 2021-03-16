@@ -34,6 +34,7 @@ Route::middleware(['auth'])->group(function(){
 
     //user start
     Route::prefix('user')->group(function () {
+        
 
         Route::get('/','UserController@index')->name('users');
         Route::get('/delete/{id}','UserController@trash')->name('trash-users');

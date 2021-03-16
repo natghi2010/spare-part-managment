@@ -28,7 +28,7 @@
                     @foreach($Parts as $part)
 
                     <tr>
-
+ 
 
                         <td>{{$part->part_no}}</td>
                         <td>{{$part->name}}</td>
