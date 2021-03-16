@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\ActivityLog;
+use App\Part;
+use App\PartType;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -15,6 +17,8 @@ class UserController extends Controller
     //display all users
     public function index()
     {
+
+
         $users = User::all();
         return view('list-users', ['users' => $users]);
     }
@@ -36,7 +40,7 @@ class UserController extends Controller
 
         $this->validate($request, [
             'name' => 'required|max:50',
-            'email' => 'required|unique:users',
+            'email' => 'required|unique:users|email',
             'type' => 'required'
         ]);
 

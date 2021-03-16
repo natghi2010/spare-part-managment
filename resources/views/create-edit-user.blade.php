@@ -27,7 +27,7 @@
 
                 <div class="form-group mb-4">
                     <label class="control-label">Name </label>
-                    <input type="text" name="name" class="form-control" value="{{$user->name ?? ''}}">
+                    <input type="text" name="name" class="form-control" value="{{$user->name ?? old('name')}}">
                 </div>
 
                 <div class="form-group mb-4">
@@ -36,22 +36,22 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text">@</div>
                         </div>
-                        <input type="text" name="email" class="form-control" value="{{$user->email ?? ''}}">
+                        <input type="text" name="email" class="form-control" value="{{$user->email ?? old('email')}}">
                     </div>
                 </div>
                 <div class="form-group mb-4">
                     <label class="control-label">Type</label>
                     <select class="custom-select mb-4" name="type" value="{{$user->type ?? ''}}">
-                        <option required selected disabled>Type</option>
-                        <option value="Admin" @if (isset($user->id))
-                            {{($user->type === 'Admin') ? 'Selected' : ''}}
-                            @endif>Admin</option>
-                        <option value="Employee" @if (isset($user->id))
-                            {{($user->type === 'Employee') ? 'Selected' : ''}}
-                            @endif>Employee</option>
-                        <option value="Manager" @if (isset($user->id))
-                            {{($user->type === 'Manager') ? 'Selected' : ''}}
-                            @endif>Manager</option>
+                        <option selected  disabled>Type</option>
+                        <option value="Admin
+                            {{(isset($user->id) && $user->type === 'Admin' || old('type') === 'Admin') ? 'Selected' : ''}}
+                            ">Admin</option>
+                        <option value="Employee" 
+                            {{(isset($user->id) && $user->type === 'Employee' || old('type') === 'Employee') ? 'Selected' : ''}}
+                            >Employee</option>
+                        <option value="Manager" 
+                            {{(isset($user->id) && $user->type === 'Manager' || old('type') === 'Manager') ? 'Selected' : ''}}
+                            >Manager</option>
                     </select>
 
                 </div>
