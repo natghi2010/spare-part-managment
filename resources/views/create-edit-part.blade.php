@@ -29,11 +29,11 @@
 
                 <div class="form-group mb-4">
                     <label class="control-label">Part Number </label>
-                    <input type="text" name="part_no" class="form-control" value="{{$part->part_no ?? ''}}">
+                    <input type="text" name="part_no" class="form-control" value="{{$part->part_no ??  old('part_no')}}">
                 </div>
                 <div class="form-group mb-4">
                     <label class="control-label">Name </label>
-                    <input type="text" name="name" class="form-control" value="{{$part->name ?? ''}}">
+                    <input type="text" name="name" class="form-control" value="{{$part->name ??  old('name')}}">
                 </div>
                 <div class="row">
                 <div class="form-group  mb-4 col-md-6 col-xs-12 ">
@@ -44,12 +44,16 @@
                             @foreach($vehicles as $vehicle)
                               <option value="{{$vehicle->id}}"
                                 @if (isset($part->id))
-                                {{ ($part->vehicle->model == $vehicle->model)? "selected" : "" }}
+                                {{ ($part->vehicle->model == $vehicle->model || old('vehicle->model') === $vehicle->model )? "selected" : "" }}
                                 @endif
                                 >{{$vehicle->model}}</option>
                             @endforeach
 
                     </select>
+
+                    {{-- <option value="Employee"
+                            {{(isset($user->id) && $user->type === 'Employee' || old('type') === 'Employee') ? 'Selected' : ''}}
+                            >Employee</option> --}}
 
                 </div>
 

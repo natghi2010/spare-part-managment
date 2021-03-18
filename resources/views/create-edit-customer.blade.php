@@ -27,15 +27,15 @@
 
                 <div class="form-group mb-4">
                     <label class="control-label">Name </label>
-                    <input type="text" name="name" class="form-control" value="{{$customer->name ?? ''}}">
+                    <input type="text" name="name" class="form-control" value="{{$customer->name ?? old('name')}}">
                 </div>
                 <div class="form-group mb-4">
                     <label class="control-label">Tin Number </label>
-                    <input type="text" name="tin_number" class="form-control" value="{{$customer->tin_number ?? ''}}">
+                    <input type="text" name="tin_number" class="form-control" value="{{$customer->tin_number ?? old('tin_number')}}">
                 </div>
                 <div class="form-group mb-4">
                     <label class="control-label">Phone Number </label>
-                    <input type="text" name="phone" class="form-control" value="{{$customer->phone ?? ''}}">
+                    <input type="text" name="phone" class="form-control" value="{{$customer->phone ?? old('phone')}}">
                 </div>
 
                 <div class="form-group mb-4">
@@ -44,34 +44,33 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text">@</div>
                         </div>
-                        <input type="text" name="email" class="form-control" value="{{$customer->email ?? ''}}">
+                        <input type="text" name="email" class="form-control" value="{{$customer->email ?? old('email')}}">
                     </div>
                 </div>
                 <div class="form-group mb-4">
                     <label class="control-label">Address </label>
-                    <input type="text" name="address" class="form-control" value="{{$customer->address ?? ''}}">
+                    <input type="text" name="address" class="form-control" value="{{$customer->address ?? old('address')}}">
                 </div>
                 <div class="form-group mb-4">
                     <label class="control-label">Contact Person</label>
-                    <input type="text" name="contact_person" class="form-control" value="{{$customer->contact_person ?? ''}}">
+                    <input type="text" name="contact_person" class="form-control" value="{{$customer->contact_person ?? old('contact_person')}}">
                 </div>
 
                 <div class="form-group mb-4" >
                     <label class="control-label">Status</label>
 
                 <div class="custom-control custom-radio custom-control-inline" >
-                    <input type="radio" value="active" @if (isset($customer->id))
-                    {{ ($customer->status=="active")? "checked" : "" }}
-                    @endif  id="active" name="status" class="custom-control-input">
+                    <input type="radio" value="active"
+                    {{(isset($customer->id) && $customer->status=="active" || old('status') === 'active')? "checked" : "" }}
+                     id="active" name="status" class="custom-control-input">
                     <label class="custom-control-label" for="active">Active</label>
                     </div>
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" value="inactive" @if (isset($customer->id))
-                    {{ ($customer->status=="inactive")? "checked" : "" }}
-                    @endif id="inactive" name="status" class="custom-control-input">
+                    <input type="radio" value="inactive"
+                    {{ (isset($customer->id) && $customer->status=="inactive" || old('status') === 'inactive')? "checked" : "" }}
+                    id="inactive" name="status" class="custom-control-input">
                     <label class="custom-control-label" for="inactive">Inactive</label>
                 </div>
-
 
                 <button type="submit" class="btn btn-primary mt-3">{{isset($customer->id) ? 'Update' : 'Submit'}} </button>
             </form>

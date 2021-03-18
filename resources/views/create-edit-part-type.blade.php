@@ -29,7 +29,7 @@
 
                 <div class="form-group mb-4">
                     <label class="control-label">Name </label>
-                    <input type="text" name="name" class="form-control" value="{{$part_type->name ?? ''}}">
+                    <input type="text" name="name" class="form-control" value="{{$part_type->name ??  old('name')}}">
                 </div>
 
 

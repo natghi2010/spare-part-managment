@@ -33,8 +33,8 @@ Route::middleware(['auth'])->group(function(){
 
 
     //user start
-    Route::prefix('user')->group(function () {
-        
+    Route::middleware(['adminOnly'])->prefix('user')->group(function () {
+
 
         Route::get('/','UserController@index')->name('users');
         Route::get('/delete/{id}','UserController@trash')->name('trash-users');
@@ -95,7 +95,7 @@ Route::middleware(['auth'])->group(function(){
     });
     //customer end
 
-    Route::middleware(['adminOnly'])->prefix('parts')->group(function () {
+    Route::prefix('parts')->group(function () {
 
         Route::get('/','PartController@index')->name('parts');
         //Route::get('/{id}','PartController@show')->name('parts');

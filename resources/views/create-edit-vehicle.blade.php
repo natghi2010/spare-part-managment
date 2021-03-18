@@ -29,11 +29,11 @@
 
                 <div class="form-group mb-4">
                     <label class="control-label">model </label>
-                    <input type="text" name="model" class="form-control" value="{{$vehicle->model ?? ''}}">
+                    <input type="text" name="model" class="form-control" value="{{$vehicle->model ??  old('model')}}">
                 </div>
                 <div class="form-group mb-4">
                     <label class="control-label">year </label>
-                    <input type="text" name="year" class="form-control" value="{{$vehicle->year ?? ''}}">
+                    <input type="text" name="year" class="form-control" value="{{$vehicle->year ??  old('year')}}">
                 </div>
 
 
