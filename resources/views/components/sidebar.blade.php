@@ -22,9 +22,8 @@
                     </a>
                 </li>
 
-                @if(Auth::user()->type = 'Admin')
-                {{-- if(auth()->user()->type != 'Admin') --}}
-
+                @if(Auth::user()->type == 'Admin')
+                
                   <li class="menu">
                     <a href="{{ route('users')}} " aria-expanded="{{Request::is('user*') ? 'true' : 'false' }}" class="dropdown-toggle">
                         <div class="">
