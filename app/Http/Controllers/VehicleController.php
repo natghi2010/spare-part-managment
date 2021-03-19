@@ -32,6 +32,10 @@ class VehicleController extends Controller
 
 
     public function store(Request $request){
+        $this->validate($request,[
+            'model'=>'required|max:50'
+         ]);
+
         $vehicle = new Vehicle;
         $vehicle->model = $request->model;
         $vehicle->year = $request->year;

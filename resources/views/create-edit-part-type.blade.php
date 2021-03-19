@@ -38,6 +38,17 @@
                 <button type="submit" class="btn btn-primary mt-3">{{isset($part_type->id) ? 'Update' : 'Submit'}} </button>
             </form>
 
+            @if (count($errors) > 0)
+            <div class = "alert alert-danger">
+                <br/>
+               <ul>
+                  @foreach ($errors->all() as $error)
+                     <li>{{ $error }}</li>
+                  @endforeach
+               </ul>
+            </div>
+           @endif
+
         </div>
     </div>
 

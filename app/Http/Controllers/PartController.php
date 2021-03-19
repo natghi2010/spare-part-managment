@@ -47,11 +47,18 @@ class PartController extends Controller
 
 
     public function store(Request $request){
+
+        $this->validate($request,[
+            'name'=>'required|max:50',
+            'vehicle'=>'required',
+            'part_type'=>'required'
+         ]);
+
         $parts = new Part;
         $parts->part_no = $request->part_no;
         $parts->name = $request->name;
-        $parts->vehicle_id = $request->vehicle_id;
-        $parts->part_type_id = $request->part_type_id;
+        $parts->vehicle_id = $request->vehicle;
+        $parts->part_type_id = $request->part_type;
         $parts->qty= $request->qty;
         $parts->save();
 
@@ -59,6 +66,10 @@ class PartController extends Controller
     }
 
     public function storeType(Request $request){
+
+        $this->validate($request,[
+            'name'=>'required|max:50'
+         ]);
 
         $part_type = new PartType;
         $part_type->name = $request->name;

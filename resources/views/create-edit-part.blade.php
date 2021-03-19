@@ -38,7 +38,7 @@
                 <div class="row">
                 <div class="form-group  mb-4 col-md-6 col-xs-12 ">
                     <label class="control-label">Vehicle </label>
-                    <select class="custom-select mb-4" name="vehicle_id" value="{{$part->vehicle_id ?? ''}}">
+                    <select class="custom-select mb-4" name="vehicle" value="{{$part->vehicle_id ?? ''}}">
 
                         <option selected disabled value="">vehicle</option>
                             @foreach($vehicles as $vehicle)
@@ -59,7 +59,7 @@
 
                 <div class="form-group mb-4 col-md-6 col-xs-12 ">
                     <label class="control-label  ">Part Type </label>
-                    <select class="custom-select mb-4" name="part_type_id" value="{{$part->part_type_id ?? ''}}">
+                    <select class="custom-select mb-4" name="part_type" value="{{$part->part_type_id ?? ''}}">
 
 
                         <option selected disabled value="">Part Type</option>
@@ -83,6 +83,17 @@
 
                 <button type="submit" class="btn btn-primary mt-3">{{isset($part->id) ? 'Update' : 'Submit'}} </button>
             </form>
+
+            @if (count($errors) > 0)
+            <div class = "alert alert-danger">
+                <br/>
+               <ul>
+                  @foreach ($errors->all() as $error)
+                     <li>{{ $error }}</li>
+                  @endforeach
+               </ul>
+            </div>
+           @endif
 
         </div>
     </div>
