@@ -8,6 +8,7 @@ use App\Suppliers;
 use App\Transaction;
 use App\Vehicle;
 use App\ActivityLog;
+use App\Ammendment_tracker;
 use App\Customers;
 use App\User;
 use Illuminate\Http\Request;
@@ -308,6 +309,8 @@ class TransactionController extends Controller
         $transaction->price = $request->price;
         $transaction->date = $request->date;
         $transaction->save();
+
+        Ammendment_tracker::create(['user_id'=>auth()->user()->id,'transaction_id'=>$transaction->transaction_id]);
 
         return redirect(route('edit-transaction',['transaction_id'=>$request->id]))->with('mssg','Successfully Updated Transaction');
     }

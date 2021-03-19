@@ -160,6 +160,7 @@ Route::middleware(['auth'])->group(function(){
 
 
 
+    Route::get('/ammendments','AmmendmentTrackerController@index')->name('ammendments');
     Route::get('/report','ReportController@generateReport')->name('report');
 
 
