@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="col-xl-12 col-md-12 col-sm-12 col-12 bg-default">
                         <h4>Profile</h4>
-                        <p class="text-success">{{ session('mssg') }}</p>
+                        <p class="text-success">{{ session('photoMssg') }}</p>
                         <p class="text-danger">{{ session('err') }}</p>
                     </div>
                 </div>

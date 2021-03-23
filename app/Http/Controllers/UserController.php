@@ -151,6 +151,6 @@ class UserController extends Controller
         //when refering use url
         $user->photo = url($filename);
         $user->save();
-         return redirect(route('profile'))->with('mssg','successfully updated Photo');
+         return redirect(route('profile'))->with('photoMssg','successfully updated Photo');
     }
 }
