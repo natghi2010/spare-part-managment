@@ -48,6 +48,7 @@ Route::middleware(['auth'])->group(function(){
         Route::post('/update','UserController@update')->name('update-user');
 
         Route::get('/profile','UserController@profile')->name('profile');
+        Route::post('/changePhoto','UserController@changePhoto')->name('change-photo');
         Route::post('/profile','UserController@changePassword')->name('change-password');
 
     });

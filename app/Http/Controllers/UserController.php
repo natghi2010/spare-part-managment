@@ -140,4 +140,10 @@ class UserController extends Controller
             return redirect(route('profile'))->with('err', 'Your current password does not match our records');
         }
     }
+
+    public function changePhoto(Request $request){
+        $photo = $request->file('photo');
+        $filename = $photo->getClientOriginalName();
+        $photo->move(public_path(),$filename);
+    }
 }
