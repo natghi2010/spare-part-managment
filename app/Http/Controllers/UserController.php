@@ -142,6 +142,11 @@ class UserController extends Controller
     }
 
     public function changePhoto(Request $request){
+
+        $this->validate($request, [
+            'photo' => 'required',
+        ]);
+
         $photo = $request->file('photo');
         $filename = $photo->getClientOriginalName();
         //when moving, use public path
@@ -151,6 +156,6 @@ class UserController extends Controller
         //when refering use url
         $user->photo = url($filename);
         $user->save();
-         return redirect(route('profile'))->with('photoMssg','Successfully updated Photo');
+        return redirect(route('profile'))->with('photoMssg','Successfully updated Photo');
     }
 }
