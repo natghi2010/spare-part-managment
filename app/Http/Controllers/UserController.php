@@ -147,7 +147,7 @@ class UserController extends Controller
         $photo->move(public_path(),$filename);
        
         $user = User::find(auth()->user()->id);
-        $user->photo = public_path().$filename;
+        $user->photo = url($filename);
         $user->save();
         return $user;
     }
