@@ -144,11 +144,13 @@ class UserController extends Controller
     public function changePhoto(Request $request){
         $photo = $request->file('photo');
         $filename = $photo->getClientOriginalName();
+        //when moving, use public path
         $photo->move(public_path(),$filename);
        
         $user = User::find(auth()->user()->id);
+        //when refering use url
         $user->photo = url($filename);
         $user->save();
-        return $user;
+         return redirect(route('profile'))->with('successfully updated Photo');
     }
 }
