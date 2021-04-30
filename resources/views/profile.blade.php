@@ -22,10 +22,15 @@
                     @csrf
                     <div class="row">
 
-                        <div class="form-group mb-4 col-md-8 col-xs-12">
-                            <label class="control-label">Photo</label>
+                        <div class="form-group mb-4 col-md-3 col-xs-12">
+                            <label class="control-label">Photo  </label>
                             <input type="file" name="photo">
                         </div>
+                        <div class="form-group mb-4 col-md-4 col-xs-12">
+                        <img src="{{auth()->user()->photo ?? asset('assets/img/profile-17.jpg')}}" width="100" height="100"/>
+                        </div>
+                    
+                       
 
 
                     </div>
