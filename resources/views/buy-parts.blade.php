@@ -18,7 +18,7 @@
 
         <div class="widget-content widget-content-area">
             <p class="text-success">{{session('mssg')}}</p>
-            <form class="form-vertical" action="#" method="POST">
+            <form class="form-vertical" action="{{route('transaction.store')}}" method="POST">
 
                 @csrf
         <div class="row">
@@ -27,7 +27,7 @@
             <input name="id" type="text" value="{{$transaction->id}}" readonly hidden>
         @endif
 
-                <div class="form-group mb-4 col-md-8 col-xs-12">
+                {{-- <div class="form-group mb-4 col-md-8 col-xs-12">
                     <label class="control-label">Supplier</label>
                     <select class="custom-select mb-4" name="supplier" >
 
@@ -39,7 +39,7 @@
 
                     </select>
 
-                </div>
+                </div> --}}
 
         </div>
 
@@ -47,7 +47,7 @@
 
                 <div class="form-group mb-4 col-md-4 col-xs-12">
                     <label class="control-label">Product</label>
-                    <select class="custom-select mb-4" name="vehicle_id" id="product_id" value="{{$product->id ?? ''}}">
+                    <select class="custom-select mb-4" name="product_id" id="product_id" value="{{$product->id ?? ''}}">
 
                         <option selected disabled value="">--Select Product--</option>
 

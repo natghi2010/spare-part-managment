@@ -27,7 +27,7 @@
                 <tbody>
                     @foreach($transactions as $transaction)
 
-                    <tr class="" title="{{$transaction->human_date}}">
+                    <tr class="text-success" title="{{$transaction->human_date}}">
 
                         <td>{{$transaction->transaction_id}}</td>
                         <td>{{$transaction->product->name ?? 'N/A'}}</td>

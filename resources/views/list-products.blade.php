@@ -10,7 +10,7 @@
             <p class="text-success">{{session('mssg')}}</p>
 
 
-            <table id="zero-config" class="table table-hover" style="width:100%">
+            <table id="zero-config" class="table table-hover striped" style="width:100%">
                 <thead>
                     <tr>
 
@@ -23,14 +23,11 @@
                 <tbody>
                     @foreach($products as $product)
 
-                    <tr>
+                    <tr class="text-success">
 
 
                         <td>{{$product->name}}</td>
                         <td>{{$product->unit->unit}}</td>
-
-
-
                         <td>
                             <a href="{{route('products.edit',['product'=>$product->id])}}"> <i style="font-size: 1.5rem" class="far fa-edit"></i> </a>
 

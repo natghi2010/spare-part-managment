@@ -146,6 +146,8 @@ Route::middleware(['auth'])->group(function(){
 
     Route::prefix('transaction')->group(function () {
 
+        Route::post('/','TransactionController@store')->name('transaction.store');
+
         Route::get('/transactions','TransactionController@index')->name('transactions');
         Route::get('/buy','TransactionController@loadBuyForm')->name('buy-parts');
         Route::get('/sell','TransactionController@loadSellForm')->name('sell-parts');

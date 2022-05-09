@@ -41,6 +41,32 @@ class TransactionController extends Controller
         return view('buy-parts', compact('products','suppliers'));
     }
 
+    public function store(Request $request){
+        $product = Product::find($request->product_id);
+
+        \DB::beginTransaction();
+
+        \DB::table("transactions")
+           ->insert([
+               "transaction_id"=>"RTRN-".rand(1000,9999),
+               "type"=>"recieve",
+               "qty"=>$request->qty,
+               "product_id"=>$request->product_id,
+               "user_id"=>auth()->user()->id,
+               "supplier_id"=>1,
+               "date"=>Carbon::now()
+           ]);
+
+        \DB::table("activity_log")->insert([
+            "action" => "Recieve ".$product->name.' ('.$request->qty.' '.$product->unit->unit.')',
+            "user_id" => auth()->user()->id,
+            "created_at"=> Carbon::now()
+        ]);
+
+        \DB::commit();
+
+    }
+
     public function edit($transaction_id){
         $transaction = Transaction::find($transaction_id);
         $vehicles = Vehicle::all();
