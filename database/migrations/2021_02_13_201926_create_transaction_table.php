@@ -17,12 +17,9 @@ class CreateTransactionTable extends Migration
             $table->id();
             $table->string('transaction_id')->nullable();
             $table->string('type')->nullable();
-            $table->unsignedBigInteger('customer_id')->nullable();
             $table->unsignedBigInteger('supplier_id')->nullable();
-            $table->unsignedBigInteger('part_id')->nullable();
-            $table->unsignedBigInteger('part_type_Id')->nullable();
-            $table->unsignedBigInteger('vehicle_id')->nullable();
-            $table->float('price')->nullable();
+            $table->unsignedBigInteger('customer_id')->nullable();
+            $table->unsignedBigInteger('product_id')->nullable();
             $table->bigInteger('qty')->nullable();
             $table->bigInteger('new_balance')->nullable();
             $table->string('date')->nullable();

@@ -3,17 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Part;
-use App\PartType;
-use App\Suppliers;
-use App\Transaction;
-use App\Vehicle;
-use App\ActivityLog;
-use App\Ammendment_tracker;
-use App\Customers;
 use App\User;
+use App\Product;
+use App\Vehicle;
+use App\PartType;
+use App\Customers;
+use App\Suppliers;
+use App\ActivityLog;
+use App\Transaction;
+use App\Ammendment_tracker;
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
 
+use Illuminate\Support\Carbon;
 use function PHPSTORM_META\type;
 
 class TransactionController extends Controller
@@ -34,10 +35,10 @@ class TransactionController extends Controller
 
     public function loadBuyForm()
     {
+
+        $products = Product::all();
         $suppliers = Suppliers::all();
-        $parts = Part::all();
-        $vehicles = Vehicle::all();
-        return view('buy-parts', compact('suppliers', 'parts', 'vehicles'));
+        return view('buy-parts', compact('products','suppliers'));
     }
 
     public function edit($transaction_id){
@@ -81,8 +82,6 @@ class TransactionController extends Controller
         $this->validate($request,[
             'supplier'=>'required',
             'qty'=>'min:1',
-            'price'=>'min:1',
-            'date'=>'required'
          ]);
 
         $transaction  =  new Transaction;

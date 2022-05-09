@@ -1,19 +1,20 @@
 <?php
 
 use App\Part;
+use App\User;
+use App\Product;
+use App\Vehicle;
 use App\PartType;
-use App\Suppliers;
 use App\Customers;
-use App\Transaction;
+use App\Suppliers;
+use Carbon\Carbon;
 use App\ActivityLog;
 use App\ProductUnit;
-use Illuminate\Database\Seeder;
-use App\User;
+use App\Transaction;
 use Faker\Factory as Faker;
+use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use App\Vehicle;
-use Carbon\Carbon;
 
 class DatabaseSeeder extends Seeder
 {
@@ -25,6 +26,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
          $this->call(ProductSeeder::class);
+        // $this->call(TransactionSeeder::class);
 
         $faker = Faker::create();
 
@@ -99,44 +101,57 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-
-        for ($i = 0; $i < 10; $i++) {
-
-            $part_type_id = PartType::inRandomOrder()->first()->id;
-
-            $part_id = Part::where('part_type_id', $part_type_id)->inRandomOrder()->first()->id;
-
-            Transaction::create([
-                "transaction_id" => "TRBY-100" . $i,
-                "type" => "BUY",
-                //"customer_id"=>null,
-                "supplier_id" => Suppliers::inRandomOrder()->first()->id,
-                "part_id" => $part_id,
-                "part_type_id" => $part_type_id,
-                "vehicle_id" => Vehicle::first()->id,
-                "price" => rand(1, 9000),
-                "qty" => rand(1, 20),
-                "new_balance" => rand(1, 9000),
-                "date" => Carbon::now(),
-                "user_id" => User::inRandomOrder()->first()->id,
-
-            ]);
-            Transaction::create([
-                "transaction_id" => "TRSL-100" . $i,
-                "type" => "SELL",
-                //"customer_id"=>null,
-                "customer_id" => Customers::inRandomOrder()->first()->id,
-                "part_id" => $part_id,
-                "part_type_id" => $part_type_id,
-                "vehicle_id" => Vehicle::first()->id,
-                "price" => rand(1, 9000),
-                "qty" => rand(1, 20),
-                "new_balance" => rand(1, 9000),
-                "date" => Carbon::now(),
-                "user_id" => User::inRandomOrder()->first()->id,
-
+        for($i=0;$i<10;$i++){
+            DB::table("transactions")->insert( [
+                "transaction_id"=>"RTRN".mt_rand(1000000,9999999),
+                "type"=>"recieve",
+                "supplier_id"=>Suppliers::inRandomOrder()->first()->id,
+                "customer_id"=>Customers::inRandomOrder()->first()->id,
+                "product_id"=>Product::inRandomOrder()->first()->id,
+                "qty"=>rand(1,5),
+                "date"=>Carbon::now(),
+                "user_id"=>User::inRandomOrder()->first()->id
             ]);
         }
+
+
+        // for ($i = 0; $i < 10; $i++) {
+
+        //     $part_type_id = PartType::inRandomOrder()->first()->id;
+
+        //     $part_id = Part::where('part_type_id', $part_type_id)->inRandomOrder()->first()->id;
+
+        //     Transaction::create([
+        //         "transaction_id" => "TRBY-100" . $i,
+        //         "type" => "BUY",
+        //         //"customer_id"=>null,
+        //         "supplier_id" => Suppliers::inRandomOrder()->first()->id,
+        //         "part_id" => $part_id,
+        //         "part_type_id" => $part_type_id,
+        //         "vehicle_id" => Vehicle::first()->id,
+        //         "price" => rand(1, 9000),
+        //         "qty" => rand(1, 20),
+        //         "new_balance" => rand(1, 9000),
+        //         "date" => Carbon::now(),
+        //         "user_id" => User::inRandomOrder()->first()->id,
+
+        //     ]);
+        //     Transaction::create([
+        //         "transaction_id" => "TRSL-100" . $i,
+        //         "type" => "SELL",
+        //         //"customer_id"=>null,
+        //         "customer_id" => Customers::inRandomOrder()->first()->id,
+        //         "part_id" => $part_id,
+        //         "part_type_id" => $part_type_id,
+        //         "vehicle_id" => Vehicle::first()->id,
+        //         "price" => rand(1, 9000),
+        //         "qty" => rand(1, 20),
+        //         "new_balance" => rand(1, 9000),
+        //         "date" => Carbon::now(),
+        //         "user_id" => User::inRandomOrder()->first()->id,
+
+        //     ]);
+        // }
 
 
       \DB::table('product_units')->insert(['unit' => 'kg']);

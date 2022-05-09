@@ -104,10 +104,10 @@
                             <a href="{{route('transactions')}}">Transactions </a>
                         </li>
                         <li>
-                            <a href="{{route('buy-parts')}}"> Buy </a>
+                            <a href="{{route('buy-parts')}}"> Recieve </a>
                         </li>
                         <li>
-                            <a href="{{route('sell-parts')}}">Sell </a>
+                            <a href="{{route('sell-parts')}}">Distribute </a>
                         </li>
                     </ul>
                 </li>
