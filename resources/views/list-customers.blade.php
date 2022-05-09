@@ -14,7 +14,7 @@
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Tin Number</th>
+                        <th>ID No</th>
                         <th>Phone</th>
                         <th>Email</th>
                         <th>Adress</th>
@@ -38,11 +38,9 @@
                         <td>{{$customer->status}}</td>
 
 
-
-
                         <td>
                             <a href="{{route('view-customer',['id'=>$customer->id])}}"> <i style="font-size: 1.5rem" class="far fa-eye"></i> </a>
-                            <a href="{{route('edit-customer',['id'=>$customer->id])}}"> <i style="font-size: 1.5rem" class="far fa-edit"></i> </a>
+                            {{-- <a href="{{route('edit-customer',['id'=>$customer->id])}}"> <i style="font-size: 1.5rem" class="far fa-edit"></i> </a> --}}
 
                             <a href="www.google.com" style="font-size: 1.5rem" class="far fa-trash-alt deleteCustomerBtn"title="{{$customer->name}}" id="{{$customer->id}}"></a>
                         </td>
@@ -55,7 +53,7 @@
                 <tfoot>
                     <tr>
                     <th>Name</th>
-                        <th>Tin Number</th>
+                        <th>Id Number</th>
                         <th>Phone</th>
                         <th>Email</th>
                         <th>Adress</th>

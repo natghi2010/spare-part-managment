@@ -111,6 +111,14 @@ Route::middleware(['auth'])->group(function(){
 
     });
 
+    Route::prefix('products')->group(function () {
+            Route::get("/", "ProductController@index")->name("products.index");
+            Route::get("/create", "ProductController@create")->name("products.create");
+            Route::get("/edit/{product}", "ProductController@edit")->name("products.edit");
+            Route::post("/", "ProductController@store")->name("products.store");
+            Route::post("/", "ProductController@update")->name("products.update");
+    });
+
 
     Route::prefix('vehicles')->group(function () {
 

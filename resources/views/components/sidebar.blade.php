@@ -23,7 +23,7 @@
                 </li>
 
                 @if(Auth::user()->type == 'Admin')
-                
+
                   <li class="menu">
                     <a href="{{ route('users')}} " aria-expanded="{{Request::is('user*') ? 'true' : 'false' }}" class="dropdown-toggle">
                         <div class="">
@@ -42,7 +42,16 @@
                     </a>
                 </li>
 
+                <li class="menu">
+                    <a href="{{ route('products.index')}} " aria-expanded="{{Request::is('products.*') ? 'true' : 'false' }}" class="dropdown-toggle">
+                        <div class="">
+                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>
+                            <span>Products</span>
+                        </div>
+                    </a>
+                </li>
 
+{{--
                 <li class="menu">
                     <a href="{{ route('suppliers')}} " aria-expanded="{{Request::is('supplier*') ? 'true' : 'false' }}" class="dropdown-toggle">
                         <div class="">
@@ -60,8 +69,8 @@
                         </div>
                     </a>
 
-                </li>
-                <li class="menu">
+                </li> --}}
+                {{-- <li class="menu">
                     <a href="{{ route('vehicles')}} " aria-expanded="{{Request::is('vehicles*') ? 'true' : 'false' }}" class="dropdown-toggle">
                         <div class="">
                             <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
@@ -76,7 +85,7 @@
                             <span>Part Type</span>
                         </div>
                     </a>
-                </li>
+                </li> --}}
 
                 <li class="menu">
                     <a href="#submenu" data-toggle="collapse" aria-expanded="{{Request::is('transaction*') ? 'true' : 'false' }}" class="dropdown-toggle">

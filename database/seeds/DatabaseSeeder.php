@@ -6,6 +6,7 @@ use App\Suppliers;
 use App\Customers;
 use App\Transaction;
 use App\ActivityLog;
+use App\ProductUnit;
 use Illuminate\Database\Seeder;
 use App\User;
 use Faker\Factory as Faker;
@@ -23,6 +24,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+         $this->call(ProductSeeder::class);
 
         $faker = Faker::create();
 
@@ -136,6 +138,9 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
+
+      \DB::table('product_units')->insert(['unit' => 'kg']);
+      \DB::table('product_units')->insert(['unit' => 'litre']);
 
 
 
