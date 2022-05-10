@@ -20,6 +20,7 @@ class CustomerController extends Controller
         return view('create-edit-customer');
     }
 
+
     public function edit($id){
         $customer = Customers::find($id);
         return view('create-edit-customer',['customer'=>$customer]);
