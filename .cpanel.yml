@@ -1,5 +1,5 @@
 
 deployment:
     tasks:
-      - export DEPLOYPATH=/home/jasminedeveloper/public_html/spare-part-managment
+      - export DEPLOYPATH=/home/jasminea/public_html/spare-part-managment
       - /bin/cp -R * $DEPLOYPATH
